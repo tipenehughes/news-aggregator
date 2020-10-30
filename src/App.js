@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import PageHeader from "./Components/PageHeader";
+import SubHeader from "./Components/SubHeader";
+import Drawer from "./Components/Drawer";
+import NewsArea from "./Components/NewsArea";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import "./App.css";
+
+const App = () => {
+    const SubHeadingValues = [
+        "Todays Headlines",
+        "National News",
+        "Politics",
+        "Sports",
+    ];
+
+    const NewsSection = SubHeadingValues.map((subheading, i) => (
+        <div>
+            <SubHeader Subheading={subheading} />
+            <NewsArea index={i} />
+        </div>
+    ));
+
+    return (
+        <div className="App">
+            <div className="drawer">
+                <Drawer />
+            </div>
+            <div className="main">
+                <PageHeader />
+                {NewsSection}
+            </div>
+        </div>
+    );
+};
 
 export default App;
