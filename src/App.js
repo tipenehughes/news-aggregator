@@ -3,6 +3,7 @@ import PageHeader from "./Components/PageHeader";
 import SubHeader from "./Components/SubHeader";
 import Drawer from "./Components/Drawer";
 import NewsArea from "./Components/NewsArea";
+import WeatherApp from "./Components/WeatherApp";
 
 import "./App.css";
 
@@ -21,13 +22,19 @@ const App = () => {
         </div>
     ));
 
+    const handleClick = (e) => {
+        e.preventDefault();
+        alert(e.target.innerHTML);
+    };
+
     return (
         <div className="App">
             <div className="drawer">
-                <Drawer />
+                <Drawer onClick={handleClick} />
             </div>
             <div className="main">
                 <PageHeader />
+                <WeatherApp />
                 {NewsSection}
             </div>
         </div>

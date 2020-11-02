@@ -1,14 +1,16 @@
 import React from "react";
 import styles from "../Css/Drawer.module.css";
 
-const Drawer = () => {
+const Drawer = ({ onClick }) => {
     return (
         <div className={styles.Drawer}>
             <div>
-                <a href="#">About</a>
-                <a href="#">Services</a>
-                <a href="#">Clients</a>
-                <a href="#">Contact</a>
+                <button href="#" onClick={onClick}>
+                    Headlines
+                </button>
+                <button href="#">National</button>
+                <button href="#">Politics</button>
+                <button href="#">Sport</button>
             </div>
         </div>
     );
