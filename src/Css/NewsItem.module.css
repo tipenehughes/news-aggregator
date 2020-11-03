@@ -8,18 +8,22 @@
     flex-direction: column;
     justify-content: space-between;
 }
-.newsItem img {
+.NewsItem img {
     width: 300px;
     height: 40%;
     margin: -10px 0 0 -10px;
 }
 
-.newsItem h4,
-.newsItem p {
+.NewsItem h4,
+.NewsItem p {
     padding-top: 15px;
 }
 
-.newsItem a {
+.NewsItem h3, .NewsItem h4 {
+    font-weight: bold;
+}
+
+.NewsItem a {
     display: inline-block;
     padding-top: 15px;
 }

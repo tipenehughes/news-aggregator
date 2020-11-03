@@ -4,7 +4,7 @@ import Spinner from "./Spinner";
 import styles from "../Css/WeatherApp.module.css";
 
 const WeatherApp = () => {
-    const APP_KEY = "af83f2c13c6cfab74630c946687025f0";
+    const APP_KEY = process.env.REACT_APP_OPENWEATHER_KEY;
 
     const [isLoading, setIsLoading] = useState(true);
     const [weather, setWeather] = useState({});

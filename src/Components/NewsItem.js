@@ -3,7 +3,10 @@ import styles from "../Css/NewsItem.module.css";
 
 const NewsItem = ({ title, image, url, source, description, index }) => {
     const truncateString = (str) => {
-        if (str.length < 120) {
+        if (str === null) {
+            return str;
+        }
+        else if (str.length < 120) {
             return str;
         } else {
             return str.slice(0, 120) + "...";

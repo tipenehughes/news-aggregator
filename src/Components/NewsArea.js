@@ -4,7 +4,7 @@ import NewsItem from "./NewsItem";
 import styles from "../Css/NewsArea.module.css";
 
 const NewsArea = ({ index }) => {
-    const APP_KEY = "b27cf49d70cd463a94847f960c9ecff1";
+    const APP_KEY = process.env.REACT_APP_NEWSAPI_KEY;
     const COUNTRY_ID = "country=nz&";
 
     const [headlines, setHeadlines] = useState([]);
