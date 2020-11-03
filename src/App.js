@@ -18,7 +18,7 @@ const App = () => {
     const NewsSection = SubHeadingValues.map((subheading, i) => (
         <div>
             <SubHeader Subheading={subheading} />
-            <NewsArea index={i} />
+            {/* <NewsArea index={i} /> */}
         </div>
     ));
 

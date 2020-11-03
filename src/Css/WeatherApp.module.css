@@ -1,12 +1,16 @@
-.weatherApp {
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
     font-weight: 500;
+}
+
+.weatherApp {
     height: 400px;
     width: 400px;
-    background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
     color: #202124;
@@ -15,7 +19,7 @@
     justify-content: space-evenly;
     align-items: center;
     padding: 0 1.5rem;
-    position: relative;
+    margin: 5rem;
 }
 
 .weatherHeading {
@@ -28,15 +32,18 @@
 .currentWeather {
     display: flex;
     width: 100%;
-    height: auto;
+    height: 100px;
     justify-content: space-between;
     align-items: center;
 }
 
-.currentWeather i {
-    display: block;
-    font-size: 5rem;
-    text-align: center;
+.iconContainer {
+    height: 100%;
+}
+
+.iconContainer img {
+    height: 100%;
+    width: auto;
 }
 
 .currentWeather p {
@@ -49,13 +56,14 @@
 
 .upcomingWeatherContainer {
     width: 100%;
-    height: auto;
+    height: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .upcomingWeather {
+    height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -63,10 +71,11 @@
     color: #3c4043;
 }
 
-.upcomingWeather i {
-    font-size: 2rem;
+.upcomingWeather > .iconContainer{
+    height: 50%;
     margin: 0.5rem 0;
 }
+
 
 .upcomingWeather p:last-child {
     opacity: 0.9;
@@ -86,7 +95,7 @@
     align-items: center;
 }
 
-button {
+.temperatureUnit button {
     background: none;
     color: inherit;
     border: none;
