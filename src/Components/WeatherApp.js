@@ -12,18 +12,22 @@ const WeatherApp = () => {
     const [unitSymbol, setUnitSymbol] = useState("c");
 
     useEffect(() => {
-        const getWeather = async () => {
-            const response = await fetch(
-                `https://api.openweathermap.org/data/2.5/onecall?lat=41.086442&lon=-74.033740&exclude=minutely,hourly&units=${units}&appid=${APP_KEY}`
-            );
-            const data = await response.json();
-            setWeather(data);
-            setIsLoading(false);
-        };
         getWeather();
     }, [units, unitSymbol]);
 
+    // API call to fetch weather data based on units, and set isLoading to false when completed
+
+    const getWeather = async () => {
+        const response = await fetch(
+            `https://api.openweathermap.org/data/2.5/onecall?lat=41.086442&lon=-74.033740&exclude=minutely,hourly&units=${units}&appid=${APP_KEY}`
+        );
+        const data = await response.json();
+        setWeather(data);
+        setIsLoading(false);
+    };
+
     // Converting Unix code returned from API into human readable format
+
     const unixConverter = (unix) => {
         const milliseconds = unix * 1000;
         const dateObject = new Date(milliseconds);
@@ -33,7 +37,7 @@ const WeatherApp = () => {
         return humanDateFormat;
     };
 
-    // Event handler that changes API call based on celcius or fahrenheit
+    // Event handler that changes API call and sets unit symbol based on celcius or fahrenheit
 
     const handleClickUnits = (e) => {
         if (e.target.innerText === "F") {
@@ -43,6 +47,45 @@ const WeatherApp = () => {
         if (e.target.innerText === "C") {
             setUnits("metric");
             setUnitSymbol("c");
+        }
+    };
+
+    // Switch statement to dynamically display weather icons based on data returned from API call
+    
+    const weatherSymbol = (data) => {
+        switch (data) {
+            case "Clear":
+                return require("../img/icons/sun.png");
+                break;
+            case "Thunderstorm":
+                return require("../img/icons/thunder.png");
+                break;
+            case "Drizzle":
+                return require("../img/icons/cloud.png");
+                break;
+            case "Rain":
+                return require("../img/icons/rain.png");
+                break;
+            case "Snow":
+                return require("../img/icons/snow.png");
+                break;
+            case "Clouds":
+                return require("../img/icons/cloud.png");
+                break;
+            case "Mist":
+                return require("../img/icons/cloud.png");
+                break;
+            case "Fog":
+                return require("../img/icons/cloud.png");
+                break;
+            case "Haze":
+                return require("../img/icons/cloud.png");
+                break;
+            case "Squall":
+                return require("../img/icons/cloud.png");
+                break;
+            default:
+                return require("../img/icons/sun.png");
         }
     };
 
@@ -62,7 +105,10 @@ const WeatherApp = () => {
                     </p>
                 </div>
                 <div className={styles.iconContainer}>
-                    <img src={require("../img/icons/sun.png")} alt="Sunny" />
+                    <img
+                        src={weatherSymbol(weather.current.weather[0].main)}
+                        alt="Sunny"
+                    />
                 </div>
             </div>
             <div className={styles.upcomingWeatherContainer}>
@@ -70,56 +116,94 @@ const WeatherApp = () => {
                     <p>Today</p>
                     <div className={styles.iconContainer}>
                         <img
-                            src={require("../img/icons/sun.png")}
+                            src={weatherSymbol(weather.current.weather[0].main)}
                             alt="Sunny"
                         />
                     </div>
-                    <p>{Math.floor(weather.daily[0].temp.max)}&#176;{unitSymbol}</p>
-                    <p>{Math.floor(weather.daily[0].temp.min)}&#176;{unitSymbol}</p>
+                    <p>
+                        {Math.floor(weather.daily[0].temp.max)}&#176;
+                        {unitSymbol}
+                    </p>
+                    <p>
+                        {Math.floor(weather.daily[0].temp.min)}&#176;
+                        {unitSymbol}
+                    </p>
                 </div>
                 <div className={styles.upcomingWeather}>
                     <p>{unixConverter(weather.daily[1].dt)}</p>
                     <div className={styles.iconContainer}>
                         <img
-                            src={require("../img/icons/sun.png")}
+                            src={weatherSymbol(
+                                weather.daily[1].weather[0].main
+                            )}
                             alt="Sunny"
                         />
                     </div>
-                    <p>{Math.floor(weather.daily[1].temp.max)}&#176;{unitSymbol}</p>
-                    <p>{Math.floor(weather.daily[1].temp.min)}&#176;{unitSymbol}</p>
+                    <p>
+                        {Math.floor(weather.daily[1].temp.max)}&#176;
+                        {unitSymbol}
+                    </p>
+                    <p>
+                        {Math.floor(weather.daily[1].temp.min)}&#176;
+                        {unitSymbol}
+                    </p>
                 </div>
                 <div className={styles.upcomingWeather}>
                     <p>{unixConverter(weather.daily[2].dt)}</p>
                     <div className={styles.iconContainer}>
                         <img
-                            src={require("../img/icons/sun.png")}
+                            src={weatherSymbol(
+                                weather.daily[2].weather[0].main
+                            )}
                             alt="Sunny"
                         />
                     </div>
-                    <p>{Math.floor(weather.daily[2].temp.max)}&#176;{unitSymbol}</p>
-                    <p>{Math.floor(weather.daily[2].temp.min)}&#176;{unitSymbol}</p>
+                    <p>
+                        {Math.floor(weather.daily[2].temp.max)}&#176;
+                        {unitSymbol}
+                    </p>
+                    <p>
+                        {Math.floor(weather.daily[2].temp.min)}&#176;
+                        {unitSymbol}
+                    </p>
                 </div>
                 <div className={styles.upcomingWeather}>
                     <p>{unixConverter(weather.daily[3].dt)}</p>
                     <div className={styles.iconContainer}>
                         <img
-                            src={require("../img/icons/sun.png")}
+                            src={weatherSymbol(
+                                weather.daily[3].weather[0].main
+                            )}
                             alt="Sunny"
                         />
                     </div>
-                    <p>{Math.floor(weather.daily[3].temp.max)}&#176;{unitSymbol}</p>
-                    <p>{Math.floor(weather.daily[3].temp.min)}&#176;{unitSymbol}</p>
+                    <p>
+                        {Math.floor(weather.daily[3].temp.max)}&#176;
+                        {unitSymbol}
+                    </p>
+                    <p>
+                        {Math.floor(weather.daily[3].temp.min)}&#176;
+                        {unitSymbol}
+                    </p>
                 </div>
                 <div className={styles.upcomingWeather}>
                     <p>{unixConverter(weather.daily[4].dt)}</p>
                     <div className={styles.iconContainer}>
                         <img
-                            src={require("../img/icons/sun.png")}
+                            src={weatherSymbol(
+                                weather.daily[4].weather[0].main
+                            )}
                             alt="Sunny"
                         />
                     </div>
-                    <p>{Math.floor(weather.daily[4].temp.max)}&#176;{unitSymbol}</p>
-                    <p>{Math.floor(weather.daily[4].temp.min)}&#176;{unitSymbol}</p>
+                    <p>
+                        {Math.floor(weather.daily[4].temp.max)}&#176;
+                        {unitSymbol}
+                    </p>
+                    <p>
+                        {Math.floor(weather.daily[4].temp.min)}&#176;
+                        {unitSymbol}
+                    </p>
                 </div>
             </div>
             <div className={styles.temperatureUnit}>
