@@ -1,0 +1,16 @@
+.CountrySelector {
+    padding: 6px 8px 6px 16px;
+    margin-bottom: 1.5rem;
+    text-decoration: none;
+    font-size: 25px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #818181;
+    display: block;
+}
+
+.CountrySelector select {
+    font-size: 20px;
+    cursor: pointer;
+}

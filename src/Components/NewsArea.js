@@ -3,9 +3,9 @@ import NewsItem from "./NewsItem";
 
 import styles from "../Css/NewsArea.module.css";
 
-const NewsArea = ({ index }) => {
+const NewsArea = ({ index, country }) => {
     const APP_KEY = process.env.REACT_APP_NEWSAPI_KEY;
-    const COUNTRY_ID = "country=nz&";
+    const COUNTRY_ID = `country=${country}&`;
 
     const [headlines, setHeadlines] = useState([]);
     const [national, setNational] = useState([]);
@@ -20,8 +20,9 @@ const NewsArea = ({ index }) => {
     }, []);
 
     const getNews = async () => {
-        const response = await fetch(
-            `http://newsapi.org/v2/everything?domains=stuff.co.nz,rnz.co.nz,nzherald.co.nz,newshub.co.nz&apiKey=${APP_KEY}`
+        const response = await fetch( country === 'us' ?
+            // `http://newsapi.org/v2/everything?domains=stuff.co.nz,rnz.co.nz,nzherald.co.nz,newshub.co.nz&apiKey=${APP_KEY}`
+            `https://newsapi.org/v2/top-headlines?country=nz&apiKey=${APP_KEY}` : `https://newsapi.org/v2/top-headlines?country=us&apiKey=${APP_KEY}`
         );
         const data = await response.json();
         setHeadlines(data.articles);
