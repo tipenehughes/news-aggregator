@@ -67,7 +67,7 @@
     font-weight: 500;
 }
 
-.movement {
+.movementUp {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -75,13 +75,20 @@
     padding: 2px 5px;
     border-radius: 4px;
     background-color: #13733323;
-}
-
-.movement span {
-    margin-right: 2px;
     color: #137333;
 }
 
-.movement p {
-    color: #137333;
+.movementDown {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: auto;
+    padding: 2px 5px;
+    border-radius: 4px;
+    background-color: #c5221f2c;
+    color: #a50e0e;
+}
+
+.movementUp span, .movementDown span {
+    margin-right: 5px;
 }
