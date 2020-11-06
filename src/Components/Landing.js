@@ -4,6 +4,7 @@ import SubHeader from "./SubHeader";
 import Drawer from "./Drawer";
 import NewsArea from "./NewsArea";
 import WeatherApp from "./WeatherApp/WeatherApp";
+import StockApp from "./StockApp/StockApp";
 
 import "../App.css";
 
@@ -47,6 +48,7 @@ const Landing = () => {
                     <div className="main">
                         <PageHeader />
                         <WeatherApp />
+                        <StockApp />
                         {/* {NewsSection} */}
                     </div>
                 </>
