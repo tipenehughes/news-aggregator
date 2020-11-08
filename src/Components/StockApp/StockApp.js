@@ -12,11 +12,14 @@ const StockApp = () => {
 
     useEffect(() => {
         getPrice();
+        // const interval = setInterval(function () {
+        //     getPrice();
+        // }, 30000);
     }, []);
 
     const getPrice = async () => {
         const response = await fetch(
-            `https://cloud.iexapis.com/v1/stock/market/batch?types=quote&symbols=spy,tsla,amzn,goog,fb,msft,aapl,nflx&token=${APP_KEY}`
+            `https://cloud.iexapis.com/v1/stock/market/batch?types=quote&symbols=spy,tsla,amzn,googl,fb,msft,aapl,nflx&token=${APP_KEY}`
         );
         const data = await response.json();
         setPrice(data);

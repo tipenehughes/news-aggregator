@@ -9,45 +9,65 @@ const NewsArea = ({ index, country }) => {
 
     const [headlines, setHeadlines] = useState([]);
     const [national, setNational] = useState([]);
+    const [covid, setCovid] = useState([]);
     const [politics, setPolitics] = useState([]);
     const [sport, setSport] = useState([]);
 
     useEffect(() => {
         getNews();
         getNational();
+        getCovid();
         getPolitics();
         getSport();
-    }, []);
+    }, [country]);
 
     const getNews = async () => {
-        const response = await fetch( country === 'us' ?
-            // `http://newsapi.org/v2/everything?domains=stuff.co.nz,rnz.co.nz,nzherald.co.nz,newshub.co.nz&apiKey=${APP_KEY}`
-            `https://newsapi.org/v2/top-headlines?country=nz&apiKey=${APP_KEY}` : `https://newsapi.org/v2/top-headlines?country=us&apiKey=${APP_KEY}`
+        const response = await fetch(
+            country === "us"
+                ? `https://newsapi.org/v2/top-headlines?${COUNTRY_ID}apiKey=${APP_KEY}`
+                : `https://newsapi.org/v2/top-headlines?${COUNTRY_ID}apiKey=${APP_KEY}`
         );
         const data = await response.json();
         setHeadlines(data.articles);
     };
+
     const getNational = async () => {
         const response = await fetch(
-            `http://newsapi.org/v2/everything?q=national&domains=stuff.co.nz,rnz.co.nz,nzherald.co.nz,newshub.co.nz&apiKey=${APP_KEY}`
+            country === "us"
+                ? `https://newsapi.org/v2/top-headlines?${COUNTRY_ID}apiKey=${APP_KEY}`
+                : `http://newsapi.org/v2/everything?q=national&domains=stuff.co.nz,rnz.co.nz,nzherald.co.nz,newshub.co.nz&apiKey=${APP_KEY}`
         );
         const data = await response.json();
         setNational(data.articles);
     };
+    const getCovid = async () => {
+        const response = await fetch(
+            country === "us"
+                ? `http://newsapi.org/v2/everything?q=covid&domains=cnn.com,foxnews.com,nytimes.com,msnbc.com&apiKey=${APP_KEY}`
+                : `http://newsapi.org/v2/everything?q=covid&domains=stuff.co.nz,rnz.co.nz,nzherald.co.nz,newshub.co.nz&apiKey=${APP_KEY}`
+        );
+        const data = await response.json();
+        setCovid(data.articles);
+    };
     const getPolitics = async () => {
         const response = await fetch(
-            `http://newsapi.org/v2/everything?q=politics&domains=stuff.co.nz,rnz.co.nz,nzherald.co.nz,newshub.co.nz&apiKey=${APP_KEY}`
+            country === "us"
+                ? `http://newsapi.org/v2/everything?q=politics&domains=cnn.com,foxnews.com,nytimes.com,msnbc.com&apiKey=${APP_KEY}`
+                : `http://newsapi.org/v2/everything?q=politics&domains=stuff.co.nz,rnz.co.nz,nzherald.co.nz,newshub.co.nz&apiKey=${APP_KEY}`
         );
         const data = await response.json();
         setPolitics(data.articles);
     };
     const getSport = async () => {
         const response = await fetch(
-            `http://newsapi.org/v2/top-headlines?${COUNTRY_ID}category=sports&apiKey=${APP_KEY}`
+            country === "us"
+                ? `http://newsapi.org/v2/top-headlines?${COUNTRY_ID}category=sports&apiKey=${APP_KEY}`
+                : `http://newsapi.org/v2/top-headlines?${COUNTRY_ID}category=sports&apiKey=${APP_KEY}`
         );
         const data = await response.json();
         setSport(data.articles);
     };
+
     if (index === 0) {
         return (
             <div className={styles.NewsArea}>
@@ -83,7 +103,7 @@ const NewsArea = ({ index, country }) => {
     } else if (index === 2) {
         return (
             <div className={styles.NewsArea}>
-                {politics.map((newsInfo) => (
+                {covid.map((newsInfo) => (
                     <NewsItem
                         title={newsInfo.title}
                         image={newsInfo.urlToImage}
@@ -97,6 +117,22 @@ const NewsArea = ({ index, country }) => {
             </div>
         );
     } else if (index === 3) {
+        return (
+            <div className={styles.NewsArea}>
+                {politics.map((newsInfo) => (
+                    <NewsItem
+                        title={newsInfo.title}
+                        image={newsInfo.urlToImage}
+                        url={newsInfo.url}
+                        source={newsInfo.source.name}
+                        description={newsInfo.description}
+                        index={index}
+                        key={Math.floor(Math.random() * 10000)}
+                    />
+                ))}
+            </div>
+        );
+    } else if (index === 4) {
         return (
             <div className={styles.NewsArea}>
                 {sport.map((newsInfo) => (

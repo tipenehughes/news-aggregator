@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import PageHeader from "./PageHeader";
 import SubHeader from "./SubHeader";
 import Drawer from "./Drawer";
@@ -15,6 +15,7 @@ const Landing = () => {
     const SubHeadingValues = [
         "Todays Headlines",
         "National News",
+        "COVID-19",
         "Politics",
         "Sports",
     ];
@@ -49,7 +50,7 @@ const Landing = () => {
                         <PageHeader />
                         <WeatherApp />
                         <StockApp />
-                        {/* {NewsSection} */}
+                        {NewsSection}
                     </div>
                 </>
             );
@@ -63,6 +64,7 @@ const Landing = () => {
                     <div className="main">
                         <PageHeader />
                         <WeatherApp />
+                        <StockApp />
                         <SubHeader Subheading={SubHeadingValues[0]} />
                         <NewsArea country={country} index={0} />
                     </div>
@@ -78,8 +80,25 @@ const Landing = () => {
                     <div className="main">
                         <PageHeader />
                         <WeatherApp />
+                        <StockApp />
                         <SubHeader Subheading={SubHeadingValues[1]} />
                         <NewsArea country={country} index={1} />
+                    </div>
+                </>
+            );
+            break;
+        case "COVID-19":
+            return (
+                <>
+                    <div className="drawer">
+                        <Drawer onChange={handleChange} onClick={handleClick} />
+                    </div>
+                    <div className="main">
+                        <PageHeader />
+                        <WeatherApp />
+                        <StockApp />
+                        <SubHeader Subheading={SubHeadingValues[2]} />
+                        <NewsArea country={country} index={2} />
                     </div>
                 </>
             );
@@ -93,8 +112,9 @@ const Landing = () => {
                     <div className="main">
                         <PageHeader />
                         <WeatherApp />
-                        <SubHeader Subheading={SubHeadingValues[2]} />
-                        <NewsArea country={country} index={2} />
+                        <StockApp />
+                        <SubHeader Subheading={SubHeadingValues[3]} />
+                        <NewsArea country={country} index={3} />
                     </div>
                 </>
             );
@@ -108,8 +128,9 @@ const Landing = () => {
                     <div className="main">
                         <PageHeader />
                         <WeatherApp />
-                        <SubHeader Subheading={SubHeadingValues[3]} />
-                        {/* <NewsArea country={country} index={3} /> */}
+                        <StockApp />
+                        <SubHeader Subheading={SubHeadingValues[4]} />
+                        <NewsArea country={country} index={4} />
                     </div>
                 </>
             );
@@ -123,6 +144,7 @@ const Landing = () => {
                     <div className="main">
                         <PageHeader />
                         <WeatherApp />
+                        <StockApp />
                         {/* {NewsSection} */}
                     </div>
                 </>

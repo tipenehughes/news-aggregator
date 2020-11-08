@@ -17,6 +17,9 @@ const Drawer = ({ onClick, onChange }) => {
                     National
                 </button>
                 <button href="#" onClick={onClick}>
+                    COVID-19
+                </button>
+                <button href="#" onClick={onClick}>
                     Politics
                 </button>
                 <button href="#" onClick={onClick}>

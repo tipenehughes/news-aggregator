@@ -5,8 +5,7 @@ const NewsItem = ({ title, image, url, source, description, index }) => {
     const truncateString = (str) => {
         if (str === null) {
             return str;
-        }
-        else if (str.length < 120) {
+        } else if (str.length < 120) {
             return str;
         } else {
             return str.slice(0, 120) + "...";
