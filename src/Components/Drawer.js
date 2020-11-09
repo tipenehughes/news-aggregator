@@ -6,7 +6,7 @@ const Drawer = ({ onClick, onChange }) => {
     return (
         <div className={styles.Drawer}>
             <div>
-                <CountrySelector onChange={onChange} />
+                
                 <button href="#" onClick={onClick}>
                     All
                 </button>
@@ -25,6 +25,7 @@ const Drawer = ({ onClick, onChange }) => {
                 <button href="#" onClick={onClick}>
                     Sport
                 </button>
+                <CountrySelector onChange={onChange} />
             </div>
         </div>
     );

@@ -3,8 +3,7 @@ import PageHeader from "./PageHeader";
 import SubHeader from "./SubHeader";
 import Drawer from "./Drawer";
 import NewsArea from "./NewsArea";
-import WeatherApp from "./WeatherApp/WeatherApp";
-import StockApp from "./StockApp/StockApp";
+import InfoApps from "./InfoApps";
 
 import "../App.css";
 
@@ -48,8 +47,7 @@ const Landing = () => {
                     </div>
                     <div className="main">
                         <PageHeader />
-                        <WeatherApp />
-                        <StockApp />
+                        <InfoApps />
                         {NewsSection}
                     </div>
                 </>
@@ -63,8 +61,7 @@ const Landing = () => {
                     </div>
                     <div className="main">
                         <PageHeader />
-                        <WeatherApp />
-                        <StockApp />
+                        <InfoApps />
                         <SubHeader Subheading={SubHeadingValues[0]} />
                         <NewsArea country={country} index={0} />
                     </div>
@@ -79,8 +76,7 @@ const Landing = () => {
                     </div>
                     <div className="main">
                         <PageHeader />
-                        <WeatherApp />
-                        <StockApp />
+                        <InfoApps />
                         <SubHeader Subheading={SubHeadingValues[1]} />
                         <NewsArea country={country} index={1} />
                     </div>
@@ -95,8 +91,7 @@ const Landing = () => {
                     </div>
                     <div className="main">
                         <PageHeader />
-                        <WeatherApp />
-                        <StockApp />
+                        <InfoApps />
                         <SubHeader Subheading={SubHeadingValues[2]} />
                         <NewsArea country={country} index={2} />
                     </div>
@@ -111,8 +106,7 @@ const Landing = () => {
                     </div>
                     <div className="main">
                         <PageHeader />
-                        <WeatherApp />
-                        <StockApp />
+                        <InfoApps />
                         <SubHeader Subheading={SubHeadingValues[3]} />
                         <NewsArea country={country} index={3} />
                     </div>
@@ -127,8 +121,7 @@ const Landing = () => {
                     </div>
                     <div className="main">
                         <PageHeader />
-                        <WeatherApp />
-                        <StockApp />
+                        <InfoApps />
                         <SubHeader Subheading={SubHeadingValues[4]} />
                         <NewsArea country={country} index={4} />
                     </div>
@@ -143,8 +136,7 @@ const Landing = () => {
                     </div>
                     <div className="main">
                         <PageHeader />
-                        <WeatherApp />
-                        <StockApp />
+                        <InfoApps />
                         {/* {NewsSection} */}
                     </div>
                 </>
