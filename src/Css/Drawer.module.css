@@ -14,9 +14,9 @@
     width: 100%;
     text-align: left;
     padding: 6px 8px 6px 16px;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.7rem;
     text-decoration: none;
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     font-weight: 400;
     background: none;
     border: none;
@@ -31,5 +31,9 @@
     background-color: rgba(66,133,244,0.149);
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
+}
+
+.fontAwesome {
+    margin-right: 15px;
 }
 

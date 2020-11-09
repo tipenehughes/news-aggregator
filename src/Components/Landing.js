@@ -43,7 +43,11 @@ const Landing = () => {
             return (
                 <>
                     <div className="drawer">
-                        <Drawer onChange={handleChange} onClick={handleClick} />
+                        <Drawer
+                            onChange={handleChange}
+                            onClick={handleClick}
+                            country={country}
+                        />
                     </div>
                     <div className="main">
                         <PageHeader />
