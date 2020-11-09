@@ -15,10 +15,10 @@ const NewsArea = ({ index, country }) => {
 
     useEffect(() => {
         getNews();
-        getNational();
-        getCovid();
-        getPolitics();
-        getSport();
+        // getNational();
+        // getCovid();
+        // getPolitics();
+        // getSport();
     }, [country]);
 
     const getNews = async () => {
@@ -71,7 +71,7 @@ const NewsArea = ({ index, country }) => {
     if (index === 0) {
         return (
             <div className={styles.NewsArea}>
-                {headlines.map((newsInfo) => (
+                {headlines.slice(0, 12).map((newsInfo) => (
                     <NewsItem
                         title={newsInfo.title}
                         image={newsInfo.urlToImage}

@@ -13,16 +13,35 @@ const NewsItem = ({ title, image, url, source, description, index }) => {
     };
     return (
         <div className={styles.NewsItem}>
-            <img
-                src={image === null ? require("../img/news.png") : image}
-                alt=""
-            />
-            <h3>{source}</h3>
-            <h4>{truncateString(title)}</h4>
-            <p>{truncateString(description)}</p>
-            <a href={url} target="_blank" rel="noopener noreferrer">
-                Read More
-            </a>
+            <div className={styles.image}>
+                <a href={url} target="_blank" rel="noopener noreferrer">
+                    <img
+                        src={
+                            image === null ? require("../img/news.png") : image
+                        }
+                        alt=""
+                    />
+                </a>
+            </div>
+            <div className={styles.source}>
+                <h3>{source}</h3>
+            </div>
+            <div className={styles.title}>
+                <h4>{truncateString(title).split(" -")[0]}</h4>
+            </div>
+            <div className={styles.description}>
+                <p>{truncateString(description)}</p>
+            </div>
+            <div>
+                <a
+                    className={styles.readMore}
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Read More
+                </a>
+            </div>
         </div>
     );
 };
