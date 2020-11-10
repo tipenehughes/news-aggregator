@@ -10,6 +10,7 @@ import "../App.css";
 const Landing = () => {
     const [section, setSection] = useState("All");
     const [country, setCountry] = useState("nz");
+    const [theme, setTheme] = useState("light");
 
     const SubHeadingValues = [
         "Todays Headlines",
@@ -21,20 +22,24 @@ const Landing = () => {
 
     const NewsSection = SubHeadingValues.map((subheading, i) => (
         <div>
-            <SubHeader Subheading={subheading} />
-            <NewsArea country={country} index={i} />
+            <SubHeader Subheading={subheading} theme={theme} />
+            <NewsArea country={country} index={i} theme={theme} />
         </div>
     ));
 
     // Event handler which updates and specifies section to display based on option selected in Drawer component
-    const handleClick = (e) => {
+    const handleSectionChange = (e) => {
         e.preventDefault();
-        setSection(e.target.innerHTML);
+        setSection(e.target.innerText);
     };
 
     // Event handler which updates and specifies country to display based on option selected in Drawer component
-    const handleChange = (e) => {
+    const handleCountryChange = (e) => {
         setCountry(e.target.value);
+    };
+
+    const handleThemeChange = () => {
+        theme === "light" ? setTheme("dark") : setTheme("light");
     };
 
     // Return based on state
@@ -44,14 +49,15 @@ const Landing = () => {
                 <>
                     <div className="drawer">
                         <Drawer
-                            onChange={handleChange}
-                            onClick={handleClick}
+                            onChange={handleCountryChange}
+                            onClick={handleSectionChange}
                             country={country}
+                            theme={theme}
                         />
                     </div>
-                    <div className="main">
-                        <PageHeader />
-                        <InfoApps />
+                    <div className={theme === "light" ? "main" : "mainDark"}>
+                        <PageHeader onClick={handleThemeChange} theme={theme} />
+                        <InfoApps theme={theme} />
                         {NewsSection}
                     </div>
                 </>
@@ -61,13 +67,21 @@ const Landing = () => {
             return (
                 <>
                     <div className="drawer">
-                        <Drawer onChange={handleChange} onClick={handleClick} />
+                        <Drawer
+                            onChange={handleCountryChange}
+                            onClick={handleSectionChange}
+                            country={country}
+                            theme={theme}
+                        />
                     </div>
-                    <div className="main">
-                        <PageHeader />
-                        <InfoApps />
-                        <SubHeader Subheading={SubHeadingValues[0]} />
-                        <NewsArea country={country} index={0} />
+                    <div className={theme === "light" ? "main" : "mainDark"}>
+                        <PageHeader onClick={handleThemeChange} theme={theme} />
+                        <InfoApps theme={theme} />
+                        <SubHeader
+                            Subheading={SubHeadingValues[0]}
+                            theme={theme}
+                        />
+                        <NewsArea country={country} index={0} theme={theme} />
                     </div>
                 </>
             );
@@ -76,13 +90,21 @@ const Landing = () => {
             return (
                 <>
                     <div className="drawer">
-                        <Drawer onChange={handleChange} onClick={handleClick} />
+                        <Drawer
+                            onChange={handleCountryChange}
+                            onClick={handleSectionChange}
+                            country={country}
+                            theme={theme}
+                        />
                     </div>
-                    <div className="main">
-                        <PageHeader />
-                        <InfoApps />
-                        <SubHeader Subheading={SubHeadingValues[1]} />
-                        <NewsArea country={country} index={1} />
+                    <div className={theme === "light" ? "main" : "mainDark"}>
+                        <PageHeader onClick={handleThemeChange} theme={theme} />
+                        <InfoApps theme={theme} />
+                        <SubHeader
+                            Subheading={SubHeadingValues[1]}
+                            theme={theme}
+                        />
+                        <NewsArea country={country} index={1} theme={theme} />
                     </div>
                 </>
             );
@@ -91,13 +113,21 @@ const Landing = () => {
             return (
                 <>
                     <div className="drawer">
-                        <Drawer onChange={handleChange} onClick={handleClick} />
+                        <Drawer
+                            onChange={handleCountryChange}
+                            onClick={handleSectionChange}
+                            country={country}
+                            theme={theme}
+                        />
                     </div>
-                    <div className="main">
-                        <PageHeader />
-                        <InfoApps />
-                        <SubHeader Subheading={SubHeadingValues[2]} />
-                        <NewsArea country={country} index={2} />
+                    <div className={theme === "light" ? "main" : "mainDark"}>
+                        <PageHeader onClick={handleThemeChange} theme={theme} />
+                        <InfoApps theme={theme} />
+                        <SubHeader
+                            Subheading={SubHeadingValues[2]}
+                            theme={theme}
+                        />
+                        <NewsArea country={country} index={2} theme={theme} />
                     </div>
                 </>
             );
@@ -106,13 +136,21 @@ const Landing = () => {
             return (
                 <>
                     <div className="drawer">
-                        <Drawer onChange={handleChange} onClick={handleClick} />
+                        <Drawer
+                            onChange={handleCountryChange}
+                            onClick={handleSectionChange}
+                            country={country}
+                            theme={theme}
+                        />
                     </div>
-                    <div className="main">
-                        <PageHeader />
-                        <InfoApps />
-                        <SubHeader Subheading={SubHeadingValues[3]} />
-                        <NewsArea country={country} index={3} />
+                    <div className={theme === "light" ? "main" : "mainDark"}>
+                        <PageHeader onClick={handleThemeChange} theme={theme} />
+                        <InfoApps theme={theme} />
+                        <SubHeader
+                            Subheading={SubHeadingValues[3]}
+                            theme={theme}
+                        />
+                        <NewsArea country={country} index={3} theme={theme} />
                     </div>
                 </>
             );
@@ -121,13 +159,21 @@ const Landing = () => {
             return (
                 <>
                     <div className="drawer">
-                        <Drawer onChange={handleChange} onClick={handleClick} />
+                        <Drawer
+                            onChange={handleCountryChange}
+                            onClick={handleSectionChange}
+                            country={country}
+                            theme={theme}
+                        />
                     </div>
-                    <div className="main">
-                        <PageHeader />
-                        <InfoApps />
-                        <SubHeader Subheading={SubHeadingValues[4]} />
-                        <NewsArea country={country} index={4} />
+                    <div className={theme === "light" ? "main" : "mainDark"}>
+                        <PageHeader onClick={handleThemeChange} theme={theme} />
+                        <InfoApps theme={theme} />
+                        <SubHeader
+                            Subheading={SubHeadingValues[4]}
+                            theme={theme}
+                        />
+                        <NewsArea country={country} index={4} theme={theme} />
                     </div>
                 </>
             );
@@ -136,12 +182,17 @@ const Landing = () => {
             return (
                 <>
                     <div className="drawer">
-                        <Drawer onChange={handleChange} onClick={handleClick} />
+                        <Drawer
+                            onChange={handleCountryChange}
+                            onClick={handleSectionChange}
+                            country={country}
+                            theme={theme}
+                        />
                     </div>
-                    <div className="main">
-                        <PageHeader />
-                        <InfoApps />
-                        {/* {NewsSection} */}
+                    <div className={theme === "light" ? "main" : "mainDark"}>
+                        <PageHeader onClick={handleThemeChange} theme={theme} />
+                        <InfoApps theme={theme} />
+                        {NewsSection}
                     </div>
                 </>
             );

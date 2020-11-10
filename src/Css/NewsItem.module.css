@@ -8,18 +8,38 @@
     flex-direction: column;
     justify-content: space-between;
     vertical-align: text-top;
+    border-bottom: 10px solid rgba(66, 134, 244, 0.308);
+    transition: 0.2s all ease;
 }
-.NewsItem div {
+
+.NewsItemDark {
+    height: 60vh;
+    width: 400px;
+    background-color: rgb(7, 0, 44);
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    vertical-align: text-top;
+    border-bottom: 10px solid rgba(66, 134, 244, 0.308);
+    transition: 0.2s all ease;
+}
+
+.NewsItem div,
+.NewsItemDark div {
     flex: 1 1 auto;
 }
 
-.NewsItem img {
+.NewsItem img,
+.NewsItemDark img {
     width: 100%;
     height: 100%;
     transition: all 0.1s ease-in-out;
 }
 
-.NewsItem img:hover {
+.NewsItem img:hover,
+.NewsItemDark img:hover {
     transform: scale(1.1);
     transition: all 0.2s ease-in-out;
 }
@@ -35,6 +55,14 @@
     padding-top: 15px;
     color: rgb(85, 85, 85);
     font-weight: bold;
+    transition: 0.2s all ease;
+}
+
+.sourceDark {
+    padding-top: 15px;
+    color: #dbe2e7;
+    font-weight: bold;
+    transition: 0.2s all ease;
 }
 
 .title {
@@ -42,6 +70,15 @@
     font-size: 1.5rem;
     line-height: 1;
     color: var(--heading-color);
+    transition: 0.2s all ease;
+}
+
+.titleDark {
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: rgb(253, 251, 224);
+    transition: 0.2s all ease;
 }
 
 .description p {
@@ -49,6 +86,16 @@
     font-weight: 500;
     line-height: 1.4;
     letter-spacing: 0.5px;
+    transition: 0.2s all ease;
+}
+
+.descriptionDark p {
+    padding-top: 15px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+    color: rgb(253, 251, 224);
+    transition: 0.2s all ease;
 }
 
 .readMore {
@@ -56,8 +103,18 @@
     padding-top: 15px;
     font-size: 1.2rem;
     color: rgb(63, 63, 63);
+    transition: 0.2s all ease;
 }
 
-.readMore:hover {
+.readMoreDark {
+    display: inline-block;
+    padding-top: 15px;
+    font-size: 1.2rem;
+    color: #dbe2e7;
+    transition: 0.2s all ease;
+}
+
+.readMore:hover,
+.readMoreDark:hover {
     text-decoration: underline;
 }

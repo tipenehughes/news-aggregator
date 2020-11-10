@@ -15,4 +15,10 @@ a {
 .main {
     padding-left: 200px;
     background-color: #e7e7e7;
+    transition: 0.2s all ease;
+}
+.mainDark {
+    padding-left: 200px;
+    background-color: rgb(14, 10, 29);
+    transition: 0.2s all ease;
 }

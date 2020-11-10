@@ -1,13 +1,27 @@
 .Drawer {
-    height: 100%; 
-    width: 200px; 
-    position: fixed; 
-    z-index: 1; 
-    top: 0; 
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
     left: 0;
     background-color: #fff;
-    overflow-x: hidden; 
-    padding-top: 10vh;  
+    overflow-x: hidden;
+    padding-top: 10vh;
+    transition: 0.2s all ease;
+}
+
+.DrawerDark {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(7, 0, 44);
+    overflow-x: hidden;
+    padding-top: 10vh;
+    transition: 0.2s all ease;
 }
 
 .Drawer button {
@@ -20,20 +34,46 @@
     font-weight: 400;
     background: none;
     border: none;
+    outline: none;
     cursor: pointer;
-    color: #3c4043;
+    color: rgb(58, 58, 58);
     display: block;
+    transition: 0.2s all ease;
 }
 
+.DrawerDark button {
+    width: 100%;
+    text-align: left;
+    padding: 6px 8px 6px 16px;
+    margin-bottom: 0.7rem;
+    text-decoration: none;
+    font-size: 1.7rem;
+    font-weight: 400;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: rgb(253, 251, 224);
+    display: block;
+    transition: 0.2s all ease;
+}
 
 .Drawer button:hover {
     color: #1967d2;
-    background-color: rgba(66,133,244,0.149);
+    background-color: rgba(66, 133, 244, 0.149);
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
+    transition: none;
+}
+
+.DrawerDark button:hover {
+    color: #1967d2;
+    background-color: rgba(66, 133, 244, 0.149);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    transition: none;
 }
 
 .fontAwesome {
     margin-right: 15px;
 }
-

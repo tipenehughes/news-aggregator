@@ -4,11 +4,11 @@ import StockApp from "./StockApp/StockApp";
 
 import styles from "../Css/InfoApps.module.css";
 
-const InfoApps = () => {
+const InfoApps = ({ theme }) => {
     return (
         <div className={styles.InfoApps}>
-            <WeatherApp />
-            <StockApp />
+            <WeatherApp theme={theme} />
+            <StockApp theme={theme} />
         </div>
     );
 };

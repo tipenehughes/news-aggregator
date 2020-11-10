@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../Css/NewsItem.module.css";
 
-const NewsItem = ({ title, image, url, source, description, index }) => {
+const NewsItem = ({ title, image, url, source, description, theme }) => {
     const truncateString = (str) => {
         if (str === null) {
             return str;
@@ -12,7 +12,11 @@ const NewsItem = ({ title, image, url, source, description, index }) => {
         }
     };
     return (
-        <div className={styles.NewsItem}>
+        <div
+            className={
+                theme === "light" ? styles.NewsItem : styles.NewsItemDark
+            }
+        >
             <div className={styles.image}>
                 <a href={url} target="_blank" rel="noopener noreferrer">
                     <img
@@ -23,18 +27,34 @@ const NewsItem = ({ title, image, url, source, description, index }) => {
                     />
                 </a>
             </div>
-            <div className={styles.source}>
+            <div
+                className={
+                    theme === "light" ? styles.source : styles.sourceDark
+                }
+            >
                 <h3>{source}</h3>
             </div>
-            <div className={styles.title}>
+            <div
+                className={theme === "light" ? styles.title : styles.titleDark}
+            >
                 <h4>{truncateString(title).split(" -")[0]}</h4>
             </div>
-            <div className={styles.description}>
+            <div
+                className={
+                    theme === "light"
+                        ? styles.description
+                        : styles.descriptionDark
+                }
+            >
                 <p>{truncateString(description)}</p>
             </div>
             <div>
                 <a
-                    className={styles.readMore}
+                    className={
+                        theme === "light"
+                            ? styles.readMore
+                            : styles.readMoreDark
+                    }
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"

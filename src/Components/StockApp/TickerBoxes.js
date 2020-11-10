@@ -4,7 +4,7 @@ import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
 
 import styles from "../../Css/StockApp.module.css";
 
-const TickerBoxes = ({ price }) => {
+const TickerBoxes = ({ price, theme }) => {
     const percent = (v) => {
         let value = v * 100;
         return value.toFixed(2) + "%";
@@ -12,7 +12,13 @@ const TickerBoxes = ({ price }) => {
 
     const Tickers = Object.entries(price).map((data, i) => (
         <div className={styles.stockTiles} key={i}>
-            <div className={styles.tickerSymbol}>
+            <div
+                className={
+                    theme === "light"
+                        ? styles.tickerSymbol
+                        : styles.tickerSymbolDark
+                }
+            >
                 <h4>{data[1].quote.symbol}</h4>
             </div>
             <div className={styles.stockName}>

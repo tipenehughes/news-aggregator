@@ -4,7 +4,7 @@ import Spinner from "../Spinner";
 
 import styles from "../../Css/WeatherApp.module.css";
 
-const WeatherApp = () => {
+const WeatherApp = ({ theme }) => {
     const APP_KEY = process.env.REACT_APP_OPENWEATHER_KEY;
 
     const [isLoading, setIsLoading] = useState(true);
@@ -93,8 +93,18 @@ const WeatherApp = () => {
     return isLoading ? (
         <Spinner />
     ) : (
-        <div className={styles.weatherApp}>
-            <div className={styles.weatherHeading}>
+        <div
+            className={
+                theme === "light" ? styles.weatherApp : styles.weatherAppDark
+            }
+        >
+            <div
+                className={
+                    theme === "light"
+                        ? styles.weatherHeading
+                        : styles.weatherHeadingDark
+                }
+            >
                 <h2>Rockland County</h2>
             </div>
             <div className={styles.currentWeather}>
@@ -118,6 +128,7 @@ const WeatherApp = () => {
                 currentData={weather.current}
                 unitSymbol={unitSymbol}
                 unixConverter={unixConverter}
+                theme={theme}
             />
             <div className={styles.temperatureUnit}>
                 <button onClick={handleClickUnits}>C</button>

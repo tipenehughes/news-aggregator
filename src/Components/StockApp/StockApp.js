@@ -4,7 +4,7 @@ import TickerBoxes from "./TickerBoxes";
 
 import styles from "../../Css/StockApp.module.css";
 
-const StockApp = () => {
+const StockApp = ({ theme }) => {
     const APP_KEY = process.env.REACT_APP_IEX_KEY;
 
     const [price, setPrice] = useState([]);
@@ -29,12 +29,22 @@ const StockApp = () => {
     return isLoading ? (
         <Spinner />
     ) : (
-        <div className={styles.stockApp}>
-            <div className={styles.stockHeading}>
+        <div
+            className={
+                theme === "light" ? styles.stockApp : styles.stockAppDark
+            }
+        >
+            <div
+                className={
+                    theme === "light"
+                        ? styles.stockHeading
+                        : styles.stockHeadingDark
+                }
+            >
                 <h2>Stocks</h2>
             </div>
             <div className={styles.stockTilesContainer}>
-                <TickerBoxes price={price} />
+                <TickerBoxes price={price} theme={theme} />
             </div>
         </div>
     );
