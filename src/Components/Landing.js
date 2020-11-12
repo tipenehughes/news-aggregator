@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PageHeader from "./PageHeader";
 import SubHeader from "./SubHeader";
 import Drawer from "./Drawer";
@@ -12,6 +12,64 @@ const Landing = () => {
     const [country, setCountry] = useState("nz");
     const [theme, setTheme] = useState("light");
 
+    const [headlines, setHeadlines] = useState([]);
+    const [national, setNational] = useState([]);
+    const [covid, setCovid] = useState([]);
+    const [politics, setPolitics] = useState([]);
+    const [sport, setSport] = useState([]);
+
+    const APP_KEY = process.env.REACT_APP_NEWSAPI_KEY;
+    const COUNTRY_ID = `country=${country}&`;
+    const nz = "&domains=stuff.co.nz,rnz.co.nz,nzherald.co.nz,newshub.co.nz";
+    const us = "&domains=cnn.com,foxnews.com,nytimes.com,msnbc.com";
+
+    useEffect(() => {
+        getNews();
+    }, [country]);
+
+    const getNews = async () => {
+        const news = fetch(
+            country === "us"
+                ? `https://newsapi.org/v2/top-headlines?${COUNTRY_ID}apiKey=${APP_KEY}`
+                : `https://newsapi.org/v2/top-headlines?${COUNTRY_ID}apiKey=${APP_KEY}`
+        );
+        const national = fetch(
+            country === "us"
+                ? `https://newsapi.org/v2/top-headlines?${COUNTRY_ID}apiKey=${APP_KEY}`
+                : `http://newsapi.org/v2/everything?q=national${nz}&apiKey=${APP_KEY}`
+        );
+        const covid = fetch(
+            country === "us"
+                ? `http://newsapi.org/v2/everything?q=covid${us}&apiKey=${APP_KEY}`
+                : `http://newsapi.org/v2/everything?q=covid${nz}&apiKey=${APP_KEY}`
+        );
+        const politics = fetch(
+            country === "us"
+                ? `http://newsapi.org/v2/everything?q=politics${us}&apiKey=${APP_KEY}`
+                : `http://newsapi.org/v2/everything?q=politics${nz}&apiKey=${APP_KEY}`
+        );
+        const sport = fetch(
+            country === "us"
+                ? `http://newsapi.org/v2/top-headlines?${COUNTRY_ID}category=sports&apiKey=${APP_KEY}`
+                : `http://newsapi.org/v2/top-headlines?${COUNTRY_ID}category=sports&apiKey=${APP_KEY}`
+        );
+        await Promise.all([news, national, covid, politics, sport])
+            .then((responses) => {
+                return Promise.all(
+                    responses.map((response) => {
+                        return response.json();
+                    })
+                );
+            })
+            .then((data) => {
+                setHeadlines(data[0].articles);
+                setNational(data[1].articles);
+                setCovid(data[2].articles);
+                setPolitics(data[3].articles);
+                setSport(data[4].articles);
+            });
+    };
+
     const SubHeadingValues = [
         "Todays Headlines",
         "National News",
@@ -23,7 +81,16 @@ const Landing = () => {
     const NewsSection = SubHeadingValues.map((subheading, i) => (
         <div>
             <SubHeader Subheading={subheading} theme={theme} />
-            <NewsArea country={country} index={i} theme={theme} />
+            {/* <NewsArea
+                country={country}
+                index={i}
+                theme={theme}
+                headlines={headlines}
+                national={national}
+                covid={covid}
+                politics={politics}
+                sport={sport}
+            /> */}
         </div>
     ));
 
@@ -58,7 +125,7 @@ const Landing = () => {
                     <div className={theme === "light" ? "main" : "mainDark"}>
                         <PageHeader onClick={handleThemeChange} theme={theme} />
                         <InfoApps theme={theme} />
-                        {NewsSection}
+                        {/* {NewsSection} */}
                     </div>
                 </>
             );
@@ -81,7 +148,12 @@ const Landing = () => {
                             Subheading={SubHeadingValues[0]}
                             theme={theme}
                         />
-                        <NewsArea country={country} index={0} theme={theme} />
+                        <NewsArea
+                            country={country}
+                            index={0}
+                            theme={theme}
+                            headlines={headlines}
+                        />
                     </div>
                 </>
             );
@@ -104,7 +176,12 @@ const Landing = () => {
                             Subheading={SubHeadingValues[1]}
                             theme={theme}
                         />
-                        <NewsArea country={country} index={1} theme={theme} />
+                        <NewsArea
+                            country={country}
+                            index={1}
+                            theme={theme}
+                            national={national}
+                        />
                     </div>
                 </>
             );
@@ -127,7 +204,12 @@ const Landing = () => {
                             Subheading={SubHeadingValues[2]}
                             theme={theme}
                         />
-                        <NewsArea country={country} index={2} theme={theme} />
+                        <NewsArea
+                            country={country}
+                            index={2}
+                            theme={theme}
+                            covid={covid}
+                        />
                     </div>
                 </>
             );
@@ -150,7 +232,12 @@ const Landing = () => {
                             Subheading={SubHeadingValues[3]}
                             theme={theme}
                         />
-                        <NewsArea country={country} index={3} theme={theme} />
+                        <NewsArea
+                            country={country}
+                            index={3}
+                            theme={theme}
+                            politics={politics}
+                        />
                     </div>
                 </>
             );
@@ -173,7 +260,12 @@ const Landing = () => {
                             Subheading={SubHeadingValues[4]}
                             theme={theme}
                         />
-                        <NewsArea country={country} index={4} theme={theme} />
+                        <NewsArea
+                            country={country}
+                            index={4}
+                            theme={theme}
+                            sport={sport}
+                        />
                     </div>
                 </>
             );

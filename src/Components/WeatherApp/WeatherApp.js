@@ -6,21 +6,55 @@ import styles from "../../Css/WeatherApp.module.css";
 
 const WeatherApp = ({ theme }) => {
     const APP_KEY = process.env.REACT_APP_OPENWEATHER_KEY;
+    const MAPS_APP_KEY = process.env.REACT_APP_GOOGLEMAPS_KEY;
 
     const [isLoading, setIsLoading] = useState(true);
     const [weather, setWeather] = useState({});
     const [units, setUnits] = useState("metric");
     const [unitSymbol, setUnitSymbol] = useState("c");
+    const [langLong, setLangLong] = useState({
+        lat: "0",
+        lon: "0",
+    });
+    const [location, setLocation] = useState('Rockland');
 
     useEffect(() => {
+        getLangLong();
+        getLocation();
         getWeather();
-    }, [units, unitSymbol]);
+    }, [units, isLoading]);
+
+    const getLangLong = () => {
+        navigator.geolocation.getCurrentPosition(
+            function success(position) {
+                const lat = position.coords.latitude.toString();
+                const lon = position.coords.longitude.toString();
+                setLangLong({
+                    lat: lat,
+                    lon: lon,
+                });
+            },
+            function error() {
+                console.log("error");
+            }
+        );
+    };
+
+    const getLocation = async () => {
+        const response = await fetch(
+            `https://maps.googleapis.com/maps/api/geocode/json?latlng=${langLong.lat},${langLong.lon}&result_type=locality&key=${MAPS_APP_KEY}`
+        );
+        const data = await response.json();
+        const dataFormatted = data.results[0];
+        setLocation(dataFormatted);
+    };
+
+    
 
     // API call to fetch weather data based on units, and set isLoading to false when completed
-
     const getWeather = async () => {
         const response = await fetch(
-            `https://api.openweathermap.org/data/2.5/onecall?lat=41.086442&lon=-74.033740&exclude=minutely,hourly&units=${units}&appid=${APP_KEY}`
+            `https://api.openweathermap.org/data/2.5/onecall?lat=${langLong.lat}&lon=${langLong.lon}&exclude=minutely,hourly&units=${units}&appid=${APP_KEY}`
         );
         const data = await response.json();
         setWeather(data);
@@ -105,7 +139,7 @@ const WeatherApp = ({ theme }) => {
                         : styles.weatherHeadingDark
                 }
             >
-                <h2>Rockland County</h2>
+                    <h2>Rockland</h2>
             </div>
             <div className={styles.currentWeather}>
                 <div>

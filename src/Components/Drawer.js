@@ -17,42 +17,42 @@ const Drawer = ({ onClick, onChange, country, theme }) => {
     return (
         <div className={theme === "light" ? styles.Drawer : styles.DrawerDark}>
             <div>
-                <button href="#" onClick={onClick}>
+                <button onClick={onClick}>
                     <FontAwesomeIcon
                         className={styles.fontAwesome}
                         icon={faGlobe}
                     />
                     All
                 </button>
-                <button href="#" onClick={onClick}>
+                <button onClick={onClick}>
                     <FontAwesomeIcon
                         className={styles.fontAwesome}
                         icon={faNewspaper}
                     />
                     Headlines
                 </button>
-                <button href="#" onClick={onClick}>
+                <button onClick={onClick}>
                     <FontAwesomeIcon
                         className={styles.fontAwesome}
                         icon={country === "nz" ? faKiwiBird : faFlagUsa}
                     />
                     National
                 </button>
-                <button href="#" onClick={onClick}>
+                <button onClick={onClick}>
                     <FontAwesomeIcon
                         className={styles.fontAwesome}
                         icon={faPlusSquare}
                     />
                     COVID-19
                 </button>
-                <button href="#" onClick={onClick}>
+                <button onClick={onClick}>
                     <FontAwesomeIcon
                         className={styles.fontAwesome}
                         icon={faLandmark}
                     />
                     Politics
                 </button>
-                <button href="#" onClick={onClick}>
+                <button onClick={onClick}>
                     <FontAwesomeIcon
                         className={styles.fontAwesome}
                         icon={faFootballBall}

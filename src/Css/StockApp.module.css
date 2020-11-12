@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 .stockApp {
-    height: 400px;
-    width: 400px;
-    background-color: #fff;
-    border: 1px solid #ccc;
+    height: var(--app-height);
+    width: var(--app-width);
+    background-color: var(--app-background-color-light-mode);
+    border: var(--app-border-light-mode);
     border-radius: 5px;
-    color: #202124;
+    color: var(--app-text-color-light-mode);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -16,12 +16,12 @@
 }
 
 .stockAppDark {
-    height: 400px;
-    width: 400px;
-    background-color: rgb(7, 0, 44);
-    border: 1px solid rgb(13, 0, 80);
+    height: var(--app-height);
+    width: var(--app-width);
+    background-color: var(--app-background-color-dark-mode);
+    border: var(--app-border-dark-mode);
     border-radius: 5px;
-    color: rgb(253, 251, 224);
+    color: var(--app-text-color-dark-mode);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -34,7 +34,7 @@
     width: 100%;
     height: auto;
     text-align: start;
-    color: #5f6368;
+    color: var(--app-heading-color-light-mode);
     padding: 0 1.5rem;
     transition: 0.2s all ease;
 }
@@ -43,7 +43,7 @@
     width: 100%;
     height: auto;
     text-align: start;
-    color: #dbe2e7;
+    color: var(--app-heading-color-dark-mode);
     padding: 0 1.5rem;
     transition: 0.2s all ease;
 }
