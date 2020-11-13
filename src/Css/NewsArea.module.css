@@ -1,6 +1,6 @@
 .NewsArea {
   width: 100%;
-  min-height: 60vh;
+  min-height: 60%;
   padding: 0 1rem;
   display: flex;
   justify-content: space-between;

@@ -3,6 +3,7 @@ import PageHeader from "./PageHeader";
 import SubHeader from "./SubHeader";
 import Drawer from "./Drawer";
 import NewsArea from "./NewsArea";
+
 import InfoApps from "./InfoApps";
 
 import "../App.css";
@@ -79,7 +80,7 @@ const Landing = () => {
     ];
 
     const NewsSection = SubHeadingValues.map((subheading, i) => (
-        <div>
+        <>
             <SubHeader Subheading={subheading} theme={theme} />
             <NewsArea
                 country={country}
@@ -91,7 +92,7 @@ const Landing = () => {
                 politics={politics}
                 sport={sport}
             />
-        </div>
+        </>
     ));
 
     // Event handler which updates and specifies section to display based on option selected in Drawer component

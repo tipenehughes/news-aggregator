@@ -1,0 +1,62 @@
+.gridContainer {
+    width: 100%;
+    min-height: 100%;
+    margin-bottom: 1rem;
+    display: grid;
+    justify-items: center;
+    grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+    grid-template-areas:
+        "mainHeadline mainHeadline headline1 headline2"
+        "mainHeadline mainHeadline headline3 headline4"
+        "headline5 headline6 headline7 headline8"
+        "headline5 headline6 headline7 headline8";
+    grid-gap: 20px;
+}
+
+.gridItem {
+    background: url("../img/image.jpg") no-repeat center;
+    background-size: cover;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.gridItem:nth-child(n + 6) {
+    width: 100%;
+    height: 50vh;
+}
+
+.gridItem:nth-child(-n + 5) {
+    width: 100%;
+    max-height: 60vh;
+}
+
+.gridItem0 {
+    grid-area: mainHeadline;
+}
+.gridItem1 {
+    grid-area: headline1;
+}
+.gridItem2 {
+    grid-area: headline2;
+}
+.gridItem3 {
+    grid-area: headline3;
+}
+.gridItem4 {
+    grid-area: headline4;
+}
+.gridItem5 {
+    grid-area: headline5;
+}
+.gridItem6 {
+    grid-area: headline6;
+}
+.gridItem7 {
+    grid-area: headline7;
+}
+.gridItem8 {
+    grid-area: headline8;
+}

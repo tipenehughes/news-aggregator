@@ -1,25 +1,22 @@
 import React from "react";
 import NewsItem from "./NewsItem";
+import Headlines from "./Headlines";
 
 import styles from "../Css/NewsArea.module.css";
 
-const NewsArea = ({ index, theme, headlines, national, covid, politics, sport }) => {
-    
+const NewsArea = ({
+    index,
+    theme,
+    headlines,
+    national,
+    covid,
+    politics,
+    sport,
+}) => {
     if (index === 0) {
         return (
             <div className={styles.NewsArea}>
-                {headlines.slice(0, 12).map((newsInfo) => (
-                    <NewsItem
-                        title={newsInfo.title}
-                        image={newsInfo.urlToImage}
-                        url={newsInfo.url}
-                        source={newsInfo.source.name}
-                        description={newsInfo.description}
-                        index={index}
-                        key={Math.floor(Math.random() * 10000)}
-                        theme={theme}
-                    />
-                ))}
+                <Headlines headlines={headlines} />
             </div>
         );
     } else if (index === 1) {
