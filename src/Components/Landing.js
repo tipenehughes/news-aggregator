@@ -81,7 +81,7 @@ const Landing = () => {
     const NewsSection = SubHeadingValues.map((subheading, i) => (
         <div>
             <SubHeader Subheading={subheading} theme={theme} />
-            {/* <NewsArea
+            <NewsArea
                 country={country}
                 index={i}
                 theme={theme}
@@ -90,7 +90,7 @@ const Landing = () => {
                 covid={covid}
                 politics={politics}
                 sport={sport}
-            /> */}
+            />
         </div>
     ));
 
@@ -125,7 +125,7 @@ const Landing = () => {
                     <div className={theme === "light" ? "main" : "mainDark"}>
                         <PageHeader onClick={handleThemeChange} theme={theme} />
                         <InfoApps theme={theme} />
-                        {/* {NewsSection} */}
+                        {NewsSection}
                     </div>
                 </>
             );

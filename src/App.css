@@ -6,7 +6,7 @@
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
     text-decoration: none;
-    --heading-color: #1e2722;
+    --heading-color: rgb(58, 58, 58);
     --app-heading-color-light-mode: #5f6368;
     --app-heading-color-dark-mode: #dbe2e7;
     --app-text-color-light-mode: #202124;

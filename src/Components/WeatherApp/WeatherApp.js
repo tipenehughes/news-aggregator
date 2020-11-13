@@ -16,7 +16,7 @@ const WeatherApp = ({ theme }) => {
         lat: "0",
         lon: "0",
     });
-    const [location, setLocation] = useState('Rockland');
+    const [location, setLocation] = useState("");
 
     useEffect(() => {
         getLangLong();
@@ -45,11 +45,16 @@ const WeatherApp = ({ theme }) => {
             `https://maps.googleapis.com/maps/api/geocode/json?latlng=${langLong.lat},${langLong.lon}&result_type=locality&key=${MAPS_APP_KEY}`
         );
         const data = await response.json();
-        const dataFormatted = data.results[0];
-        setLocation(dataFormatted);
-    };
+        const dataFormatted =
+            data.results[0] === undefined
+                ? ""
+                : data.results[0].formatted_address
+                      .match(/[^,]+,[^,]+/g)
+                      .toString();
 
-    
+        setLocation(dataFormatted);
+        console.log(dataFormatted);
+    };
 
     // API call to fetch weather data based on units, and set isLoading to false when completed
     const getWeather = async () => {
@@ -139,7 +144,7 @@ const WeatherApp = ({ theme }) => {
                         : styles.weatherHeadingDark
                 }
             >
-                    <h2>Rockland</h2>
+                <h2>{location}</h2>
             </div>
             <div className={styles.currentWeather}>
                 <div>

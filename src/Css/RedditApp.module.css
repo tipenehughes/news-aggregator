@@ -40,7 +40,6 @@
     transition: 0.2s all ease;
 }
 
-
 .redditHeadingDark {
     width: 100%;
     height: auto;
@@ -95,6 +94,7 @@
     fill: rgb(58, 58, 58);
     vertical-align: middle;
     display: inline-block;
+    pointer-events: none;
 }
 
 .svgDark {
@@ -104,6 +104,7 @@
     fill: var(--app-text-color-dark-mode);
     vertical-align: middle;
     display: inline-block;
+    pointer-events: none;
 }
 
 .svg:hover,
