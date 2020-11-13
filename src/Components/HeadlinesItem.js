@@ -13,29 +13,40 @@ const HeadlinesItem = ({ headlines }) => {
         }
     };
 
-    const h = headlines.slice(0, 9).map((newsInfo, i) => (
-        <div className={`${styles.gridItem} ${styles.gridItem + i}`}>
-            <div className={styles.source}>
-                <h3>{newsInfo.source.name}</h3>
+    const h = headlines.slice(0, 9).map((newsInfo, i) => {
+        return (
+            <div
+                className={`${styles.gridItem} ${styles.gridItem}`}
+                style={
+                    newsInfo.image === null
+                        ? require("../img/news.png")
+                        : {
+                              background: `url(${newsInfo.urlToImage}) no-repeat center;`,
+                          }
+                }
+            >
+                <div className={styles.source}>
+                    <h3>{newsInfo.source.name}</h3>
+                </div>
+                <div className={styles.title}>
+                    <h4>{truncateString(newsInfo.title).split(" -")[0]}</h4>
+                </div>
+                <div className={styles.description}>
+                    <p>{truncateString(newsInfo.description)}</p>
+                </div>
+                <div className={styles.readMore}>
+                    <a
+                        href={newsInfo.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        {" "}
+                        Read More{" "}
+                    </a>
+                </div>
             </div>
-            <div className={styles.title}>
-                <h4>{truncateString(newsInfo.title).split(" -")[0]}</h4>
-            </div>
-            <div className={styles.description}>
-                <p>{truncateString(newsInfo.description)}</p>
-            </div>
-            <div className={styles.readMore}>
-                <a
-                    href={newsInfo.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    {" "}
-                    Read More{" "}
-                </a>
-            </div>
-        </div>
-    ));
+        );
+    });
     return <>{h}</>;
 };
 
