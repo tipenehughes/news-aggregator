@@ -34,31 +34,27 @@ const RedditApp = ({ theme }) => {
         <Spinner />
     ) : (
         <div
-            className={
-                theme === "light" ? styles.redditApp : styles.redditAppDark
-            }
+            className={`${styles.redditApp} ${
+                theme === "dark" && styles.redditAppDark
+            }`}
         >
             <div
-                className={
-                    theme === "light"
-                        ? styles.redditHeading
-                        : styles.redditHeadingDark
-                }
+                className={`${styles.redditHeading} ${
+                    theme === "dark" && styles.redditHeadingDark
+                }`}
             >
                 <h2>Reddit</h2>
             </div>
             <div
-                className={
-                    theme === "light"
-                        ? styles.redditButtons
-                        : styles.redditButtonsDark
-                }
+                className={`${styles.redditButtons} ${
+                    theme === "dark" && styles.redditButtonsDark
+                }`}
             >
                 <button onClick={handleFilterChange}>
                     <svg
-                        className={
-                            theme === "light" ? styles.svg : styles.svgDark
-                        }
+                        className={`${styles.svg} ${
+                            theme === "dark" && styles.svgDark
+                        }`}
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20"
                     >
@@ -70,7 +66,9 @@ const RedditApp = ({ theme }) => {
                 <button onClick={handleFilterChange}>
                     <svg
                         className={
-                            theme === "light" ? styles.svg : styles.svgDark
+                            `${styles.svg} ${
+                                theme === "dark" && styles.svgDark
+                            }`
                         }
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -87,7 +85,9 @@ const RedditApp = ({ theme }) => {
                 <button onClick={handleFilterChange}>
                     <svg
                         className={
-                            theme === "light" ? styles.svg : styles.svgDark
+                            `${styles.svg} ${
+                                theme === "dark" && styles.svgDark
+                            }`
                         }
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -102,10 +102,7 @@ const RedditApp = ({ theme }) => {
                     Top
                 </button>
             </div>
-            <div className={styles.results}>
-                {/* {redditData.map((data, i) => (
-                    <RedditResults />
-                ))} */}
+            <div className={styles.results}>                
                 {reddit}
             </div>
         </div>

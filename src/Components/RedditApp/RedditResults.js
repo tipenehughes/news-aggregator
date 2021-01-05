@@ -16,16 +16,14 @@ const RedditResults = ({ theme, data, index }) => {
     return (
         <>
             <div
-                className={
-                    theme === "light"
-                        ? styles.resultsBox
-                        : styles.resultsBoxDark
-                }
+                className={`${styles.resultsBox} ${
+                    theme === "dark" && styles.resultsBoxDark
+                }`}
             >
                 <div
-                    className={
-                        theme === "light" ? styles.upvotes : styles.upvotesDark
-                    }
+                    className={`${styles.upvotes} ${
+                        theme === "dark" && styles.upvotesDark
+                    }`}
                 >
                     <p>{data.data.ups}</p>
                 </div>
@@ -42,11 +40,9 @@ const RedditResults = ({ theme, data, index }) => {
                     </div>
                     <div className={styles.mainContent}>
                         <div
-                            className={
-                                theme === "light"
-                                    ? styles.title
-                                    : styles.titleDark
-                            }
+                            className={`${styles.title} ${
+                                theme === "dark" && styles.titleDark
+                            }`}
                         >
                             <a
                                 href={`${redditUrl}${data.data.permalink}`}
@@ -57,11 +53,9 @@ const RedditResults = ({ theme, data, index }) => {
                             </a>
                         </div>
                         <a
-                            className={
-                                theme === "light"
-                                    ? styles.linkToThread
-                                    : styles.linkToThreadDark
-                            }
+                            className={`${styles.linkToThread} ${
+                                theme === "dark" && styles.linkToThreadDark
+                            }`}
                             href={data.data.url}
                             target="_blank"
                             rel="noopener noreferrer"

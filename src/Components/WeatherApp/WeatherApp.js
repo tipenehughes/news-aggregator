@@ -23,6 +23,7 @@ const WeatherApp = ({ theme }) => {
         getLocation();
         getWeather();
     }, [units, isLoading]);
+    
 
     const getLangLong = () => {
         navigator.geolocation.getCurrentPosition(
@@ -52,8 +53,7 @@ const WeatherApp = ({ theme }) => {
                       .match(/[^,]+,[^,]+/g)
                       .toString();
 
-        setLocation(dataFormatted);
-        console.log(dataFormatted);
+        setLocation(dataFormatted);        
     };
 
     // API call to fetch weather data based on units, and set isLoading to false when completed
@@ -133,16 +133,14 @@ const WeatherApp = ({ theme }) => {
         <Spinner />
     ) : (
         <div
-            className={
-                theme === "light" ? styles.weatherApp : styles.weatherAppDark
-            }
+            className={`${styles.weatherApp} ${
+                theme === "dark" && styles.weatherAppDark
+            }`}
         >
             <div
-                className={
-                    theme === "light"
-                        ? styles.weatherHeading
-                        : styles.weatherHeadingDark
-                }
+                className={`${styles.weatherHeading} ${
+                    theme === "dark" && styles.weatherHeadingDark
+                }`}
             >
                 <h2>{location}</h2>
             </div>

@@ -13,9 +13,9 @@ const NewsItem = ({ title, image, url, source, description, theme }) => {
     };
     return (
         <div
-            className={
-                theme === "light" ? styles.NewsItem : styles.NewsItemDark
-            }
+            className={`${styles.NewsItem} ${
+                theme === "dark" && styles.NewsItemDark
+            }`}
         >
             <div className={styles.image}>
                 <a href={url} target="_blank" rel="noopener noreferrer">
@@ -28,33 +28,31 @@ const NewsItem = ({ title, image, url, source, description, theme }) => {
                 </a>
             </div>
             <div
-                className={
-                    theme === "light" ? styles.source : styles.sourceDark
-                }
+                className={`${styles.source} ${
+                    theme === "dark" && styles.sourceDark
+                }`}
             >
                 <h3>{source}</h3>
             </div>
             <div
-                className={theme === "light" ? styles.title : styles.titleDark}
+                className={`${styles.source} ${
+                    theme === "dark" && styles.titleDark
+                }`}
             >
                 <h4>{truncateString(title).split(" -")[0]}</h4>
             </div>
             <div
-                className={
-                    theme === "light"
-                        ? styles.description
-                        : styles.descriptionDark
-                }
+                className={`${styles.description} ${
+                    theme === "dark" && styles.descriptionDark
+                }`}
             >
                 <p>{truncateString(description)}</p>
             </div>
             <div>
                 <a
-                    className={
-                        theme === "light"
-                            ? styles.readMore
-                            : styles.readMoreDark
-                    }
+                    className={`${styles.readMore} ${
+                        theme === "dark" && styles.readMoreDark
+                    }`}
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"

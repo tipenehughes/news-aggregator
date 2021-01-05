@@ -14,36 +14,40 @@ const HeadlinesItem = ({ headlines }) => {
     };
 
     const h = headlines.slice(0, 9).map((newsInfo, i) => {
+        const { urlToImage, source, title, description, url } = newsInfo;
+        console.log(urlToImage);
+
+        const backgroundStyle = {
+            background: `linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 80%) no-repeat center center / cover,
+   url("${urlToImage}") no-repeat center center / cover`,
+        };
+        const backgroundStyleNull = {
+            background: `linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 80%) no-repeat center center / cover,
+            url("${require("../img/news.png")}") no-repeat center center / cover`,
+        };
+
         return (
             <div
-                className={`${styles.gridItem} ${styles.gridItem}`}
+                className={`${styles.gridItem} ${styles["gridItem" + i]}`}
                 style={
-                    newsInfo.image === null
-                        ? require("../img/news.png")
-                        : {
-                              background: `url(${newsInfo.urlToImage}) no-repeat center;`,
-                          }
+                    urlToImage === null ? backgroundStyleNull : backgroundStyle
                 }
             >
-                <div className={styles.source}>
-                    <h3>{newsInfo.source.name}</h3>
-                </div>
-                <div className={styles.title}>
-                    <h4>{truncateString(newsInfo.title).split(" -")[0]}</h4>
-                </div>
-                <div className={styles.description}>
-                    <p>{truncateString(newsInfo.description)}</p>
-                </div>
-                <div className={styles.readMore}>
-                    <a
-                        href={newsInfo.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        {" "}
-                        Read More{" "}
-                    </a>
-                </div>
+                <a href={url} target="_blank" rel="noopener noreferrer">
+                    <div className={styles.source}>
+                        <h3>{source.name}</h3>
+                    </div>
+                    <div className={styles.title}>
+                        <h4>{truncateString(title).split(" -")[0]}</h4>
+                    </div>
+                    {i >= 1 && i <= 4 ? (
+                        <></>
+                    ) : (
+                        <div className={styles.description}>
+                            <p>{truncateString(description)}</p>
+                        </div>
+                    )}
+                </a>
             </div>
         );
     });

@@ -13,11 +13,9 @@ const TickerBoxes = ({ price, theme }) => {
     const Tickers = Object.entries(price).map((data, i) => (
         <div className={styles.stockTiles} key={i}>
             <div
-                className={
-                    theme === "light"
-                        ? styles.tickerSymbol
-                        : styles.tickerSymbolDark
-                }
+                className={`${styles.tickerSymbol} ${
+                    theme === "dark" && styles.tickerSymbolDark
+                }`}
             >
                 <h4>{data[1].quote.symbol}</h4>
             </div>

@@ -1,6 +1,8 @@
 .InfoApps {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    padding: 0 1rem;
+    margin: 3rem 0;
 }

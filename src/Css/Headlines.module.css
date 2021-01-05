@@ -10,19 +10,22 @@
         "mainHeadline mainHeadline headline3 headline4"
         "headline5 headline6 headline7 headline8"
         "headline5 headline6 headline7 headline8";
-    grid-gap: 20px;
+    grid-gap: 1.25rem;
 }
 
 .gridItem {
-    /* background: url("../img/image.jpg") no-repeat center; */
-    background-size: cover;
-    padding: 10px;
+    padding: 0.625rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-start;
-    border-bottom: 10px solid rgba(66, 134, 244, 0.308);
+    border-bottom: 0.625rem solid rgba(66, 134, 244);
 }
+
+.gridItem:hover {
+    background-color: green;
+}
+
 .gridItem:nth-child(n + 6) {
     width: 100%;
     height: 50vh;
@@ -60,15 +63,20 @@
 }
 
 .source {
-    color: rgb(85, 85, 85);
+    color: rgb(201, 201, 201);
     font-weight: bold;
 }
 
 .title {
     font-weight: bold;
     font-size: 1.5rem;
-    line-height: 1;
+    line-height: 1.2;
     color: var(--app-text-color-dark-mode);
+}
+
+.gridItem0 .title {
+    font-size: 3rem;
+    font-weight: bold;
 }
 
 .description p {
@@ -84,4 +92,70 @@
     padding-top: 15px;
     font-size: 1.2rem;
     color: var(--app-text-color-dark-mode);
+}
+
+@media only screen and (max-width: 768px) {
+    .gridContainer {
+        width: 100%;
+        min-height: 100%;
+        margin-bottom: 1rem;
+        display: grid;
+        justify-items: center;
+        grid-template: repeat(7, 1fr) / repeat(4, 1fr);
+        grid-template-areas:
+            "mainHeadline mainHeadline mainHeadline mainHeadline"
+            "mainHeadline mainHeadline mainHeadline mainHeadline"
+            "headline8 headline8 headline7 headline7"
+            "headline8 headline8 headline7 headline7"
+            "headline1 headline1 headline2 headline2"
+            "headline3 headline3 headline4 headline4"
+            "headline5 headline5 headline6 headline6";
+        grid-gap: 1.25rem;
+    }
+    .gridItem {
+        width: 100%;
+    }
+    .gridItem:nth-child(n + 6) {
+        width: auto;
+        height: auto;
+    }
+    .gridItem:nth-child(-n + 5) {
+        width: auto;
+        max-height: auto;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .gridContainer {
+        width: 100%;
+        min-height: 100%;
+        margin-bottom: 1rem;
+        display: grid;
+        justify-items: center;
+        grid-template: repeat(10, 1fr) / repeat(2, 1fr);
+        grid-template-areas:
+            "mainHeadline mainHeadline"
+            "mainHeadline mainHeadline"
+            "headline8 headline8"
+            "headline8 headline8"
+            "headline7 headline7"
+            "headline7 headline7"
+            "headline6 headline6"
+            "headline5 headline5"
+            "headline1 headline2"            
+            "headline3 headline4"
+            ;
+        grid-gap: 1.25rem;
+    }
+    .gridItem {
+        width: 100%;
+    }
+    .gridItem:nth-child(n + 6) {
+        width: auto;
+        height: auto;
+    }
+    .gridItem:nth-child(-n + 5) {
+        width: auto;
+        max-height: auto;
+    }
 }

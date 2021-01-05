@@ -15,7 +15,9 @@ import styles from "../Css/Drawer.module.css";
 
 const Drawer = ({ onClick, onChange, country, theme }) => {
     return (
-        <div className={theme === "light" ? styles.Drawer : styles.DrawerDark}>
+        <div className={
+            `${styles.Drawer} ${theme === "dark" && styles.DrawerDark}`
+            }>
             <div>
                 <button onClick={onClick}>
                     <FontAwesomeIcon

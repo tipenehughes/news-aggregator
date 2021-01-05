@@ -30,16 +30,14 @@ const StockApp = ({ theme }) => {
         <Spinner />
     ) : (
         <div
-            className={
-                theme === "light" ? styles.stockApp : styles.stockAppDark
-            }
+            className={`${styles.stockApp} ${
+                theme === "dark" && styles.stockAppDark
+            }`}
         >
             <div
-                className={
-                    theme === "light"
-                        ? styles.stockHeading
-                        : styles.stockHeadingDark
-                }
+                className={`${styles.stockHeading} ${
+                    theme === "dark" && styles.stockHeadingDark
+                }`}
             >
                 <h2>Stocks</h2>
             </div>

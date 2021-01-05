@@ -12,11 +12,9 @@ const UpcomingWeather = ({
 }) => {
     const futureWeather = dailyData.slice(1, 4).map((data, i) => (
         <div
-            className={
-                theme === "light"
-                    ? styles.upcomingWeather
-                    : styles.upcomingWeatherDark
-            }
+            className={`${styles.upcomingWeather} ${
+                theme === "dark" && styles.upcomingWeatherDark
+            }`}
             key={i}
         >
             <p>{unixConverter(dailyData[i + 1].dt)}</p>
@@ -40,11 +38,9 @@ const UpcomingWeather = ({
     return (
         <div className={styles.upcomingWeatherContainer}>
             <div
-                className={
-                    theme === "light"
-                        ? styles.upcomingWeather
-                        : styles.upcomingWeatherDark
-                }
+                className={`${styles.upcomingWeather} ${
+                    theme === "dark" && styles.upcomingWeatherDark
+                }`}
             >
                 <p>Today</p>
                 <div className={styles.iconContainer}>

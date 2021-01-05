@@ -123,10 +123,12 @@ const Landing = () => {
                             theme={theme}
                         />
                     </div>
-                    <div className={theme === "light" ? "main" : "mainDark"}>
+                    <div className={
+                        `${"main"} ${theme === "dark" && "mainDark"}`
+                        }>
                         <PageHeader onClick={handleThemeChange} theme={theme} />
                         <InfoApps theme={theme} />
-                        {NewsSection}
+                        {/* {NewsSection} */}
                     </div>
                 </>
             );
@@ -142,7 +144,7 @@ const Landing = () => {
                             theme={theme}
                         />
                     </div>
-                    <div className={theme === "light" ? "main" : "mainDark"}>
+                    <div className={`${"main"} ${theme === "dark" && "mainDark"}`}>
                         <PageHeader onClick={handleThemeChange} theme={theme} />
                         <InfoApps theme={theme} />
                         <SubHeader
@@ -170,7 +172,7 @@ const Landing = () => {
                             theme={theme}
                         />
                     </div>
-                    <div className={theme === "light" ? "main" : "mainDark"}>
+                    <div className={`${"main"} ${theme === "dark" && "mainDark"}`}>
                         <PageHeader onClick={handleThemeChange} theme={theme} />
                         <InfoApps theme={theme} />
                         <SubHeader
@@ -198,7 +200,7 @@ const Landing = () => {
                             theme={theme}
                         />
                     </div>
-                    <div className={theme === "light" ? "main" : "mainDark"}>
+                    <div className={`${"main"} ${theme === "dark" && "mainDark"}`}>
                         <PageHeader onClick={handleThemeChange} theme={theme} />
                         <InfoApps theme={theme} />
                         <SubHeader
@@ -226,7 +228,7 @@ const Landing = () => {
                             theme={theme}
                         />
                     </div>
-                    <div className={theme === "light" ? "main" : "mainDark"}>
+                    <div className={`${"main"} ${theme === "dark" && "mainDark"}`}>
                         <PageHeader onClick={handleThemeChange} theme={theme} />
                         <InfoApps theme={theme} />
                         <SubHeader
@@ -254,7 +256,7 @@ const Landing = () => {
                             theme={theme}
                         />
                     </div>
-                    <div className={theme === "light" ? "main" : "mainDark"}>
+                    <div className={`${"main"} ${theme === "dark" && "mainDark"}`}>
                         <PageHeader onClick={handleThemeChange} theme={theme} />
                         <InfoApps theme={theme} />
                         <SubHeader
@@ -282,7 +284,7 @@ const Landing = () => {
                             theme={theme}
                         />
                     </div>
-                    <div className={theme === "light" ? "main" : "mainDark"}>
+                    <div className={`${"main"} ${theme === "dark" && "mainDark"}`}>
                         <PageHeader onClick={handleThemeChange} theme={theme} />
                         <InfoApps theme={theme} />
                         {NewsSection}

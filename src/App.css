@@ -8,28 +8,43 @@
     text-decoration: none;
     --heading-color: rgb(58, 58, 58);
     --app-heading-color-light-mode: #5f6368;
-    --app-heading-color-dark-mode: #dbe2e7;
+    --app-heading-color-dark-mode: rgb(253, 251, 224);
     --app-text-color-light-mode: #202124;
     --app-text-color-dark-mode: rgb(253, 251, 224);
-    --app-background-color-light-mode : #fff;
-    --app-background-color-dark-mode: rgb(7, 0, 44);
-    --app-border-light-mode: 1px solid #ccc;
-    --app-border-dark-mode: 1px solid rgb(13, 0, 80);
-    --app-height: 400px;
-    --app-width: 400px;
-
+    --app-background-color-light-mode: #fff;
+    --app-background-color-dark-mode: #002631;
+    --app-height: 25rem;
+    --app-width: 25rem;
 }
 a {
     text-decoration: none;
     color: #000;
 }
 .main {
-    padding-left: 200px;
+    padding-left: 15vw;
     background-color: #e7e7e7;
     transition: 0.2s all ease;
 }
 .mainDark {
-    padding-left: 200px;
-    background-color: rgb(14, 10, 29);
+    background-color: #002631;
     transition: 0.2s all ease;
+}
+@media only screen and (max-width: 1300px) {
+    html {
+        font-size: 12px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .main {
+        padding-left: 20vw;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    html {
+        font-size: 11px;
+    }
+    .main {
+        padding-left: 0;
+    }
 }
