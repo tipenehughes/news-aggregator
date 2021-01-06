@@ -4,10 +4,14 @@ import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 
 import styles from "../Css/Theme.module.css";
 
-const Theme = ({ onClick, theme }) => {
+const Theme = ({ handleThemeChange, theme }) => {
     return (
-        <div className={theme === "light" ? styles.theme : styles.themeDark}>
-            <button onClick={onClick}>
+        <div
+            className={`${styles.theme} ${
+                theme === "dark" && styles.themeDark
+            }`}
+        >
+            <button onClick={handleThemeChange}>
                 {theme === "light" ? (
                     <FontAwesomeIcon icon={faMoon} />
                 ) : (

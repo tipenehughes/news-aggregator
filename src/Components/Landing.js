@@ -13,6 +13,10 @@ const Landing = () => {
     const [country, setCountry] = useState("nz");
     const [theme, setTheme] = useState("light");
 
+    const [drawerOpen, setDrawerOpen] = useState(false);
+
+    const [pageWidth, setPageWidth] = useState(window.innerWidth);
+
     const [headlines, setHeadlines] = useState([]);
     const [national, setNational] = useState([]);
     const [covid, setCovid] = useState([]);
@@ -25,51 +29,51 @@ const Landing = () => {
     const us = "&domains=cnn.com,foxnews.com,nytimes.com,msnbc.com";
 
     useEffect(() => {
-        getNews();
+        // getNews();
     }, [country]);
 
-    const getNews = async () => {
-        const news = fetch(
-            country === "us"
-                ? `https://newsapi.org/v2/top-headlines?${COUNTRY_ID}apiKey=${APP_KEY}`
-                : `https://newsapi.org/v2/top-headlines?${COUNTRY_ID}apiKey=${APP_KEY}`
-        );
-        const national = fetch(
-            country === "us"
-                ? `https://newsapi.org/v2/top-headlines?${COUNTRY_ID}apiKey=${APP_KEY}`
-                : `http://newsapi.org/v2/everything?q=national${nz}&apiKey=${APP_KEY}`
-        );
-        const covid = fetch(
-            country === "us"
-                ? `http://newsapi.org/v2/everything?q=covid${us}&apiKey=${APP_KEY}`
-                : `http://newsapi.org/v2/everything?q=covid${nz}&apiKey=${APP_KEY}`
-        );
-        const politics = fetch(
-            country === "us"
-                ? `http://newsapi.org/v2/everything?q=politics${us}&apiKey=${APP_KEY}`
-                : `http://newsapi.org/v2/everything?q=politics${nz}&apiKey=${APP_KEY}`
-        );
-        const sport = fetch(
-            country === "us"
-                ? `http://newsapi.org/v2/top-headlines?${COUNTRY_ID}category=sports&apiKey=${APP_KEY}`
-                : `http://newsapi.org/v2/top-headlines?${COUNTRY_ID}category=sports&apiKey=${APP_KEY}`
-        );
-        await Promise.all([news, national, covid, politics, sport])
-            .then((responses) => {
-                return Promise.all(
-                    responses.map((response) => {
-                        return response.json();
-                    })
-                );
-            })
-            .then((data) => {
-                setHeadlines(data[0].articles);
-                setNational(data[1].articles);
-                setCovid(data[2].articles);
-                setPolitics(data[3].articles);
-                setSport(data[4].articles);
-            });
-    };
+    // const getNews = async () => {
+    //     const news = fetch(
+    //         country === "us"
+    //             ? `https://newsapi.org/v2/top-headlines?${COUNTRY_ID}apiKey=${APP_KEY}`
+    //             : `https://newsapi.org/v2/top-headlines?${COUNTRY_ID}apiKey=${APP_KEY}`
+    //     );
+    //     const national = fetch(
+    //         country === "us"
+    //             ? `https://newsapi.org/v2/top-headlines?${COUNTRY_ID}apiKey=${APP_KEY}`
+    //             : `http://newsapi.org/v2/everything?q=national${nz}&apiKey=${APP_KEY}`
+    //     );
+    //     const covid = fetch(
+    //         country === "us"
+    //             ? `http://newsapi.org/v2/everything?q=covid${us}&apiKey=${APP_KEY}`
+    //             : `http://newsapi.org/v2/everything?q=covid${nz}&apiKey=${APP_KEY}`
+    //     );
+    //     const politics = fetch(
+    //         country === "us"
+    //             ? `http://newsapi.org/v2/everything?q=politics${us}&apiKey=${APP_KEY}`
+    //             : `http://newsapi.org/v2/everything?q=politics${nz}&apiKey=${APP_KEY}`
+    //     );
+    //     const sport = fetch(
+    //         country === "us"
+    //             ? `http://newsapi.org/v2/top-headlines?${COUNTRY_ID}category=sports&apiKey=${APP_KEY}`
+    //             : `http://newsapi.org/v2/top-headlines?${COUNTRY_ID}category=sports&apiKey=${APP_KEY}`
+    //     );
+    //     await Promise.all([news, national, covid, politics, sport])
+    //         .then((responses) => {
+    //             return Promise.all(
+    //                 responses.map((response) => {
+    //                     return response.json();
+    //                 })
+    //             );
+    //         })
+    //         .then((data) => {
+    //             setHeadlines(data[0].articles);
+    //             setNational(data[1].articles);
+    //             setCovid(data[2].articles);
+    //             setPolitics(data[3].articles);
+    //             setSport(data[4].articles);
+    //         });
+    // };
 
     const SubHeadingValues = [
         "Todays Headlines",
@@ -106,8 +110,15 @@ const Landing = () => {
         setCountry(e.target.value);
     };
 
+    // Event handler to toggle between light and dark theme
+
     const handleThemeChange = () => {
         theme === "light" ? setTheme("dark") : setTheme("light");
+    };
+
+    // Event handle to toggle mobile menu
+    const handleSetDrawerOpen = () => {
+        return !drawerOpen ? setDrawerOpen(true) : setDrawerOpen(false);
     };
 
     // Return based on state
@@ -117,16 +128,23 @@ const Landing = () => {
                 <>
                     <div className="drawer">
                         <Drawer
-                            onChange={handleCountryChange}
-                            onClick={handleSectionChange}
-                            country={country}
+                            handleCountryChange={handleCountryChange}
+                            handleSectionChange={handleSectionChange}
                             theme={theme}
+                            drawerOpen={drawerOpen}
                         />
                     </div>
-                    <div className={
-                        `${"main"} ${theme === "dark" && "mainDark"}`
-                        }>
-                        <PageHeader onClick={handleThemeChange} theme={theme} />
+                    <div
+                        className={`${"main"} ${
+                            theme === "dark" && "mainDark"
+                        }`}
+                    >
+                        <PageHeader
+                            handleThemeChange={handleThemeChange}
+                            theme={theme}
+                            drawerOpen={drawerOpen}
+                            handleSetDrawerOpen={handleSetDrawerOpen}
+                        />
                         <InfoApps theme={theme} />
                         {/* {NewsSection} */}
                     </div>
@@ -138,14 +156,23 @@ const Landing = () => {
                 <>
                     <div className="drawer">
                         <Drawer
-                            onChange={handleCountryChange}
-                            onClick={handleSectionChange}
-                            country={country}
+                            handleCountryChange={handleCountryChange}
+                            handleSectionChange={handleSectionChange}
                             theme={theme}
+                            drawerOpen={drawerOpen}
                         />
                     </div>
-                    <div className={`${"main"} ${theme === "dark" && "mainDark"}`}>
-                        <PageHeader onClick={handleThemeChange} theme={theme} />
+                    <div
+                        className={`${"main"} ${
+                            theme === "dark" && "mainDark"
+                        }`}
+                    >
+                        <PageHeader
+                            handleThemeChange={handleThemeChange}
+                            theme={theme}
+                            drawerOpen={drawerOpen}
+                            handleSetDrawerOpen={handleSetDrawerOpen}
+                        />
                         <InfoApps theme={theme} />
                         <SubHeader
                             Subheading={SubHeadingValues[0]}
@@ -166,14 +193,23 @@ const Landing = () => {
                 <>
                     <div className="drawer">
                         <Drawer
-                            onChange={handleCountryChange}
-                            onClick={handleSectionChange}
-                            country={country}
+                            handleCountryChange={handleCountryChange}
+                            handleSectionChange={handleSectionChange}
                             theme={theme}
+                            drawerOpen={drawerOpen}
                         />
                     </div>
-                    <div className={`${"main"} ${theme === "dark" && "mainDark"}`}>
-                        <PageHeader onClick={handleThemeChange} theme={theme} />
+                    <div
+                        className={`${"main"} ${
+                            theme === "dark" && "mainDark"
+                        }`}
+                    >
+                        <PageHeader
+                            handleThemeChange={handleThemeChange}
+                            theme={theme}
+                            drawerOpen={drawerOpen}
+                            handleSetDrawerOpen={handleSetDrawerOpen}
+                        />
                         <InfoApps theme={theme} />
                         <SubHeader
                             Subheading={SubHeadingValues[1]}
@@ -194,14 +230,23 @@ const Landing = () => {
                 <>
                     <div className="drawer">
                         <Drawer
-                            onChange={handleCountryChange}
-                            onClick={handleSectionChange}
-                            country={country}
+                            handleCountryChange={handleCountryChange}
+                            handleSectionChange={handleSectionChange}
                             theme={theme}
+                            drawerOpen={drawerOpen}
                         />
                     </div>
-                    <div className={`${"main"} ${theme === "dark" && "mainDark"}`}>
-                        <PageHeader onClick={handleThemeChange} theme={theme} />
+                    <div
+                        className={`${"main"} ${
+                            theme === "dark" && "mainDark"
+                        }`}
+                    >
+                        <PageHeader
+                            handleThemeChange={handleThemeChange}
+                            theme={theme}
+                            drawerOpen={drawerOpen}
+                            handleSetDrawerOpen={handleSetDrawerOpen}
+                        />
                         <InfoApps theme={theme} />
                         <SubHeader
                             Subheading={SubHeadingValues[2]}
@@ -222,14 +267,23 @@ const Landing = () => {
                 <>
                     <div className="drawer">
                         <Drawer
-                            onChange={handleCountryChange}
-                            onClick={handleSectionChange}
-                            country={country}
+                            handleCountryChange={handleCountryChange}
+                            handleSectionChange={handleSectionChange}
                             theme={theme}
+                            drawerOpen={drawerOpen}
                         />
                     </div>
-                    <div className={`${"main"} ${theme === "dark" && "mainDark"}`}>
-                        <PageHeader onClick={handleThemeChange} theme={theme} />
+                    <div
+                        className={`${"main"} ${
+                            theme === "dark" && "mainDark"
+                        }`}
+                    >
+                        <PageHeader
+                            handleThemeChange={handleThemeChange}
+                            theme={theme}
+                            drawerOpen={drawerOpen}
+                            handleSetDrawerOpen={handleSetDrawerOpen}
+                        />
                         <InfoApps theme={theme} />
                         <SubHeader
                             Subheading={SubHeadingValues[3]}
@@ -250,14 +304,24 @@ const Landing = () => {
                 <>
                     <div className="drawer">
                         <Drawer
-                            onChange={handleCountryChange}
-                            onClick={handleSectionChange}
+                            handleCountryChange={handleCountryChange}
+                            handleSectionChange={handleSectionChange}
                             country={country}
                             theme={theme}
+                            drawerOpen={drawerOpen}
                         />
                     </div>
-                    <div className={`${"main"} ${theme === "dark" && "mainDark"}`}>
-                        <PageHeader onClick={handleThemeChange} theme={theme} />
+                    <div
+                        className={`${"main"} ${
+                            theme === "dark" && "mainDark"
+                        }`}
+                    >
+                        <PageHeader
+                            handleThemeChange={handleThemeChange}
+                            theme={theme}
+                            drawerOpen={drawerOpen}
+                            handleSetDrawerOpen={handleSetDrawerOpen}
+                        />
                         <InfoApps theme={theme} />
                         <SubHeader
                             Subheading={SubHeadingValues[4]}
@@ -278,14 +342,23 @@ const Landing = () => {
                 <>
                     <div className="drawer">
                         <Drawer
-                            onChange={handleCountryChange}
-                            onClick={handleSectionChange}
-                            country={country}
+                            handleCountryChange={handleCountryChange}
+                            handleSectionChange={handleSectionChange}
                             theme={theme}
+                            drawerOpen={drawerOpen}
                         />
                     </div>
-                    <div className={`${"main"} ${theme === "dark" && "mainDark"}`}>
-                        <PageHeader onClick={handleThemeChange} theme={theme} />
+                    <div
+                        className={`${"main"} ${
+                            theme === "dark" && "mainDark"
+                        }`}
+                    >
+                        <PageHeader
+                            handleThemeChange={handleThemeChange}
+                            theme={theme}
+                            drawerOpen={drawerOpen}
+                            handleSetDrawerOpen={handleSetDrawerOpen}
+                        />
                         <InfoApps theme={theme} />
                         {NewsSection}
                     </div>

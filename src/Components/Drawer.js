@@ -8,60 +8,43 @@ import {
     faGlobe,
     faLandmark,
     faFlagUsa,
-    faKiwiBird,
 } from "@fortawesome/free-solid-svg-icons";
 
 import styles from "../Css/Drawer.module.css";
 
-const Drawer = ({ onClick, onChange, country, theme }) => {
+const Drawer = ({
+    handleSectionChange,
+    handleCountryChange,
+    theme,
+    drawerOpen,
+}) => {
+    const buttons = [
+        ["All", faGlobe],
+        ["Headlines", faNewspaper],
+        ["National", faFlagUsa],
+        ["COVID-19", faPlusSquare],
+        ["Politics", faLandmark],
+        ["Sport", faFootballBall],
+    ];
     return (
-        <div className={
-            `${styles.Drawer} ${theme === "dark" && styles.DrawerDark}`
-            }>
+        <div
+            className={`${styles.Drawer} ${
+                theme === "dark" && styles.DrawerDark
+            } ${drawerOpen && styles.DrawerOpen}`}
+        >
             <div>
-                <button onClick={onClick}>
-                    <FontAwesomeIcon
-                        className={styles.fontAwesome}
-                        icon={faGlobe}
-                    />
-                    All
-                </button>
-                <button onClick={onClick}>
-                    <FontAwesomeIcon
-                        className={styles.fontAwesome}
-                        icon={faNewspaper}
-                    />
-                    Headlines
-                </button>
-                <button onClick={onClick}>
-                    <FontAwesomeIcon
-                        className={styles.fontAwesome}
-                        icon={country === "nz" ? faKiwiBird : faFlagUsa}
-                    />
-                    National
-                </button>
-                <button onClick={onClick}>
-                    <FontAwesomeIcon
-                        className={styles.fontAwesome}
-                        icon={faPlusSquare}
-                    />
-                    COVID-19
-                </button>
-                <button onClick={onClick}>
-                    <FontAwesomeIcon
-                        className={styles.fontAwesome}
-                        icon={faLandmark}
-                    />
-                    Politics
-                </button>
-                <button onClick={onClick}>
-                    <FontAwesomeIcon
-                        className={styles.fontAwesome}
-                        icon={faFootballBall}
-                    />
-                    Sport
-                </button>
-                <CountrySelector onChange={onChange} />
+                {buttons.map((data, i) => {
+                    return (
+                        <button key={i} onClick={handleSectionChange}>
+                            <FontAwesomeIcon
+                                className={styles.fontAwesome}
+                                icon={data[1]}
+                            />
+                            {data[0]}
+                        </button>
+                    );
+                })}
+                <CountrySelector handleCountryChange={handleCountryChange} />
             </div>
         </div>
     );

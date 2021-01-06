@@ -17,11 +17,6 @@
     cursor: pointer;
 }
 
-.themeDark button {
-    font-size: 2rem;
-    color: rgb(253, 251, 224);
-    background: none;
-    border: none;
-    outline: none;
-    cursor: pointer;
+.themeDark button {    
+    color: rgb(253, 251, 224);    
 }
