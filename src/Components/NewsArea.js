@@ -13,22 +13,10 @@ const NewsArea = ({
     politics,
     sport,
 }) => {
-    // const item = (
-    //     <NewsItem
-    //         title={newsInfo.title}
-    //         image={newsInfo.urlToImage}
-    //         url={newsInfo.url}
-    //         source={newsInfo.source.name}
-    //         description={newsInfo.description}
-    //         index={index}
-    //         key={Math.floor(Math.random() * 10000)}
-    //         theme={theme}
-    //     />
-    // );
     if (index === 0) {
         return (
             <div className={styles.NewsArea}>
-                <Headlines headlines={headlines} />
+                <Headlines headlines={headlines} theme={theme}/>
             </div>
         );
     } else if (index === 1) {

@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import CountrySelector from "./CountrySelector";
+import Theme from "./Theme";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faNewspaper,
@@ -15,9 +16,19 @@ import styles from "../Css/Drawer.module.css";
 const Drawer = ({
     handleSectionChange,
     handleCountryChange,
+    handleThemeChange,
+    handleSetDrawerOpen,
     theme,
     drawerOpen,
 }) => {
+    const [pageWidth, setPageWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        window.addEventListener("resize", () => {
+            return setPageWidth(window.innerWidth);
+        });
+    }, []);
+
     const buttons = [
         ["All", faGlobe],
         ["Headlines", faNewspaper],
@@ -28,14 +39,26 @@ const Drawer = ({
     ];
     return (
         <div
-            className={`${styles.Drawer} ${
-                theme === "dark" && styles.DrawerDark
-            } ${drawerOpen && styles.DrawerOpen}`}
+            className={`${styles.drawer} ${
+                theme === "dark" && styles.drawerDark
+            } ${drawerOpen && styles.drawerOpen}`}
         >
-            <div>
+            {pageWidth <= 480 && (
+                <Theme handleThemeChange={handleThemeChange} theme={theme} />
+            )}
+            <div
+                className={`${styles.buttonContainer} ${
+                    theme === "dark" && styles.buttonContainerDark
+                }`}
+            >
                 {buttons.map((data, i) => {
                     return (
-                        <button key={i} onClick={handleSectionChange}>
+                        <button
+                            key={i}
+                            onClick={(e) => {
+                                handleSectionChange(e); handleSetDrawerOpen();
+                            }}
+                        >
                             <FontAwesomeIcon
                                 className={styles.fontAwesome}
                                 icon={data[1]}
@@ -44,8 +67,8 @@ const Drawer = ({
                         </button>
                     );
                 })}
-                <CountrySelector handleCountryChange={handleCountryChange} />
             </div>
+            <CountrySelector handleCountryChange={handleCountryChange} />
         </div>
     );
 };

@@ -20,12 +20,17 @@ const PageHeader = ({
     console.log(pageWidth);
 
     return (
-        <div className={theme === "light" ? styles.Header : styles.HeaderDark}>
+        <div
+            className={`${styles.Header} ${
+                theme === "dark" && styles.HeaderDark
+            }`}
+        >
             <h1>My News</h1>
             {pageWidth <= 480 && (
                 <MobileMenuButton
                     handleSetDrawerOpen={handleSetDrawerOpen}
                     drawerOpen={drawerOpen}
+                    theme={theme}
                 />
             )}
             {pageWidth > 480 && (

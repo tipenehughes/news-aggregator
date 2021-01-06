@@ -22,8 +22,8 @@
     border-bottom: 0.625rem solid rgba(66, 134, 244);
 }
 
-.gridItem:hover {
-    background-color: green;
+.gridItemDark {
+    /* border-bottom: 0.625rem solid #ed6363; */
 }
 
 .gridItem:nth-child(n + 6) {
@@ -142,9 +142,8 @@
             "headline7 headline7"
             "headline6 headline6"
             "headline5 headline5"
-            "headline1 headline2"            
-            "headline3 headline4"
-            ;
+            "headline1 headline2"
+            "headline3 headline4";
         grid-gap: 1.25rem;
     }
     .gridItem {

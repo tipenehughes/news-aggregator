@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from "../Css/Headlines.module.css";
 
-const HeadlinesItem = ({ headlines }) => {
+const HeadlinesItem = ({ headlines, theme }) => {
     const truncateString = (str) => {
         if (str === null) {
             return str;
@@ -14,8 +14,7 @@ const HeadlinesItem = ({ headlines }) => {
     };
 
     const h = headlines.slice(0, 9).map((newsInfo, i) => {
-        const { urlToImage, source, title, description, url } = newsInfo;
-        console.log(urlToImage);
+        const { urlToImage, source, title, description, url } = newsInfo;        
 
         const backgroundStyle = {
             background: `linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 80%) no-repeat center center / cover,
@@ -28,7 +27,7 @@ const HeadlinesItem = ({ headlines }) => {
 
         return (
             <div
-                className={`${styles.gridItem} ${styles["gridItem" + i]}`}
+                className={`${styles.gridItem} ${theme === "dark" && styles.gridItemDark} ${styles["gridItem" + i]}`}
                 style={
                     urlToImage === null ? backgroundStyleNull : backgroundStyle
                 }

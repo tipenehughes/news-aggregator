@@ -13,8 +13,10 @@
 }
 
 .NewsItemDark {
-    background-color: rgb(7, 0, 44);
+    background-color:  #002d3a;
+    box-shadow: 6px 6px 12px #002631, -6px -6px 12px #003443;
     transition: 0.2s all ease;
+    border: 1px solid #5050508e;
 }
 
 .NewsItem img {
@@ -43,7 +45,7 @@
 }
 
 .sourceDark {
-    color: #dbe2e7;
+    color: #d1f5e2;
     transition: 0.2s all ease;
 }
 
@@ -92,8 +94,7 @@
 
 @media only screen and (max-width: 1200px) {
     .NewsItem {
-        flex: 1 1 30%;
-        
+        flex: 1 1 30%;        
     }
 }
 

@@ -7,9 +7,7 @@ import styles from "../Css/Theme.module.css";
 const Theme = ({ handleThemeChange, theme }) => {
     return (
         <div
-            className={`${styles.theme} ${
-                theme === "dark" && styles.themeDark
-            }`}
+            className={`${styles.theme} ${theme === "dark" && styles.themeDark}`}
         >
             <button onClick={handleThemeChange}>
                 {theme === "light" ? (

@@ -1,5 +1,5 @@
 .countrySelector {
-    padding: 6px 8px 6px 16px;
+    padding: 0 1rem;
     margin-top: 1.8rem;
     text-decoration: none;
     font-size: 1.2rem;
@@ -9,6 +9,7 @@
     outline: none;
     color: #5f6368;
     display: block;
+    flex: 3 1 auto;
 }
 
 .countrySelector select {
@@ -20,10 +21,15 @@
 @media only screen and (max-width: 480px) {
     .countrySelector {
         font-size: 1.8rem;
+        margin-right: 1rem;
     }
     .countrySelector select {
         font-size: 1.8rem;
         margin-left: 0;
         margin-top: 0.2rem;
+    }
+
+    .countrySelector select option {
+        font-size: 1.2rem;
     }
 }

@@ -15,8 +15,6 @@ const Landing = () => {
 
     const [drawerOpen, setDrawerOpen] = useState(false);
 
-    const [pageWidth, setPageWidth] = useState(window.innerWidth);
-
     const [headlines, setHeadlines] = useState([]);
     const [national, setNational] = useState([]);
     const [covid, setCovid] = useState([]);
@@ -29,51 +27,51 @@ const Landing = () => {
     const us = "&domains=cnn.com,foxnews.com,nytimes.com,msnbc.com";
 
     useEffect(() => {
-        // getNews();
+        getNews();
     }, [country]);
 
-    // const getNews = async () => {
-    //     const news = fetch(
-    //         country === "us"
-    //             ? `https://newsapi.org/v2/top-headlines?${COUNTRY_ID}apiKey=${APP_KEY}`
-    //             : `https://newsapi.org/v2/top-headlines?${COUNTRY_ID}apiKey=${APP_KEY}`
-    //     );
-    //     const national = fetch(
-    //         country === "us"
-    //             ? `https://newsapi.org/v2/top-headlines?${COUNTRY_ID}apiKey=${APP_KEY}`
-    //             : `http://newsapi.org/v2/everything?q=national${nz}&apiKey=${APP_KEY}`
-    //     );
-    //     const covid = fetch(
-    //         country === "us"
-    //             ? `http://newsapi.org/v2/everything?q=covid${us}&apiKey=${APP_KEY}`
-    //             : `http://newsapi.org/v2/everything?q=covid${nz}&apiKey=${APP_KEY}`
-    //     );
-    //     const politics = fetch(
-    //         country === "us"
-    //             ? `http://newsapi.org/v2/everything?q=politics${us}&apiKey=${APP_KEY}`
-    //             : `http://newsapi.org/v2/everything?q=politics${nz}&apiKey=${APP_KEY}`
-    //     );
-    //     const sport = fetch(
-    //         country === "us"
-    //             ? `http://newsapi.org/v2/top-headlines?${COUNTRY_ID}category=sports&apiKey=${APP_KEY}`
-    //             : `http://newsapi.org/v2/top-headlines?${COUNTRY_ID}category=sports&apiKey=${APP_KEY}`
-    //     );
-    //     await Promise.all([news, national, covid, politics, sport])
-    //         .then((responses) => {
-    //             return Promise.all(
-    //                 responses.map((response) => {
-    //                     return response.json();
-    //                 })
-    //             );
-    //         })
-    //         .then((data) => {
-    //             setHeadlines(data[0].articles);
-    //             setNational(data[1].articles);
-    //             setCovid(data[2].articles);
-    //             setPolitics(data[3].articles);
-    //             setSport(data[4].articles);
-    //         });
-    // };
+    const getNews = async () => {
+        const news = fetch(
+            country === "us"
+                ? `https://newsapi.org/v2/top-headlines?${COUNTRY_ID}apiKey=${APP_KEY}`
+                : `https://newsapi.org/v2/top-headlines?${COUNTRY_ID}apiKey=${APP_KEY}`
+        );
+        const national = fetch(
+            country === "us"
+                ? `https://newsapi.org/v2/top-headlines?${COUNTRY_ID}apiKey=${APP_KEY}`
+                : `http://newsapi.org/v2/everything?q=national${nz}&apiKey=${APP_KEY}`
+        );
+        const covid = fetch(
+            country === "us"
+                ? `http://newsapi.org/v2/everything?q=covid${us}&apiKey=${APP_KEY}`
+                : `http://newsapi.org/v2/everything?q=covid${nz}&apiKey=${APP_KEY}`
+        );
+        const politics = fetch(
+            country === "us"
+                ? `http://newsapi.org/v2/everything?q=politics${us}&apiKey=${APP_KEY}`
+                : `http://newsapi.org/v2/everything?q=politics${nz}&apiKey=${APP_KEY}`
+        );
+        const sport = fetch(
+            country === "us"
+                ? `http://newsapi.org/v2/top-headlines?${COUNTRY_ID}category=sports&apiKey=${APP_KEY}`
+                : `http://newsapi.org/v2/top-headlines?${COUNTRY_ID}category=sports&apiKey=${APP_KEY}`
+        );
+        await Promise.all([news, national, covid, politics, sport])
+            .then((responses) => {
+                return Promise.all(
+                    responses.map((response) => {
+                        return response.json();
+                    })
+                );
+            })
+            .then((data) => {
+                setHeadlines(data[0].articles);
+                setNational(data[1].articles);
+                setCovid(data[2].articles);
+                setPolitics(data[3].articles);
+                setSport(data[4].articles);
+            });
+    };
 
     const SubHeadingValues = [
         "Todays Headlines",
@@ -130,6 +128,8 @@ const Landing = () => {
                         <Drawer
                             handleCountryChange={handleCountryChange}
                             handleSectionChange={handleSectionChange}
+                            handleThemeChange={handleThemeChange}
+                            handleSetDrawerOpen={handleSetDrawerOpen}
                             theme={theme}
                             drawerOpen={drawerOpen}
                         />
@@ -146,7 +146,7 @@ const Landing = () => {
                             handleSetDrawerOpen={handleSetDrawerOpen}
                         />
                         <InfoApps theme={theme} />
-                        {/* {NewsSection} */}
+                        {NewsSection}
                     </div>
                 </>
             );
@@ -158,6 +158,8 @@ const Landing = () => {
                         <Drawer
                             handleCountryChange={handleCountryChange}
                             handleSectionChange={handleSectionChange}
+                            handleThemeChange={handleThemeChange}
+                            handleSetDrawerOpen={handleSetDrawerOpen}
                             theme={theme}
                             drawerOpen={drawerOpen}
                         />
@@ -195,6 +197,8 @@ const Landing = () => {
                         <Drawer
                             handleCountryChange={handleCountryChange}
                             handleSectionChange={handleSectionChange}
+                            handleThemeChange={handleThemeChange}
+                            handleSetDrawerOpen={handleSetDrawerOpen}
                             theme={theme}
                             drawerOpen={drawerOpen}
                         />
@@ -232,6 +236,8 @@ const Landing = () => {
                         <Drawer
                             handleCountryChange={handleCountryChange}
                             handleSectionChange={handleSectionChange}
+                            handleThemeChange={handleThemeChange}
+                            handleSetDrawerOpen={handleSetDrawerOpen}
                             theme={theme}
                             drawerOpen={drawerOpen}
                         />
@@ -269,6 +275,8 @@ const Landing = () => {
                         <Drawer
                             handleCountryChange={handleCountryChange}
                             handleSectionChange={handleSectionChange}
+                            handleThemeChange={handleThemeChange}
+                            handleSetDrawerOpen={handleSetDrawerOpen}
                             theme={theme}
                             drawerOpen={drawerOpen}
                         />
@@ -306,6 +314,8 @@ const Landing = () => {
                         <Drawer
                             handleCountryChange={handleCountryChange}
                             handleSectionChange={handleSectionChange}
+                            handleThemeChange={handleThemeChange}
+                            handleSetDrawerOpen={handleSetDrawerOpen}
                             country={country}
                             theme={theme}
                             drawerOpen={drawerOpen}
@@ -344,6 +354,8 @@ const Landing = () => {
                         <Drawer
                             handleCountryChange={handleCountryChange}
                             handleSectionChange={handleSectionChange}
+                            handleThemeChange={handleThemeChange}
+                            handleSetDrawerOpen={handleSetDrawerOpen}
                             theme={theme}
                             drawerOpen={drawerOpen}
                         />

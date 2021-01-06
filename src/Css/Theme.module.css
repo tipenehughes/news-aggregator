@@ -3,11 +3,6 @@
     margin-right: 2.5rem;
 }
 
-.themeDark {
-    margin-left: auto;
-    margin-right: 2.5rem;
-}
-
 .theme button {
     font-size: 2rem;
     color: var(--heading-color);
@@ -19,4 +14,10 @@
 
 .themeDark button {    
     color: rgb(253, 251, 224);    
+}
+
+@media only screen and (max-width: 480px) {
+    .theme button {
+        font-size: 3rem;
+    }
 }
