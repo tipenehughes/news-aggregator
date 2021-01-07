@@ -20,15 +20,7 @@ a {
     text-decoration: none;
     color: #000;
 }
-.main {
-    padding-left: 15vw;
-    background-color: #e7e7e7;
-    transition: 0.2s all ease;
-}
-.mainDark {
-    background-color: #002631;
-    transition: 0.2s all ease;
-}
+
 @media only screen and (max-width: 1300px) {
     html {
         font-size: 12px;

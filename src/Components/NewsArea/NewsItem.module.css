@@ -1,0 +1,113 @@
+.newsItem {
+    height: 60vh;
+    background-color: #fff;
+    padding-bottom: 0.625rem;
+    margin: 0.625rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    vertical-align: text-top;
+    border-bottom: 0.625rem solid rgba(66, 134, 244, 0.308);
+    transition: 0.2s all ease;
+    flex: 1 1 20%;
+}
+
+.newsItemDark {
+    background-color:  #002d3a;
+    box-shadow: 6px 6px 12px #002631, -6px -6px 12px #003443;
+    transition: 0.2s all ease;
+    border: 1px solid #5050508e;
+}
+
+.newsItem img {
+    width: 100%;
+    min-height: 100%;
+    transition: all 0.1s ease-in-out;
+}
+
+.newsItem img:hover {
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
+}
+
+.image {
+    width: 100%;
+    flex: 0 0 45%;
+    overflow: hidden;
+}
+
+.source {
+    padding-top: 15px;
+    padding: 0.93rem 0.625rem 0 0.625rem;
+    color: rgb(85, 85, 85);
+    font-weight: bold;
+    transition: 0.2s all ease;
+}
+
+.sourceDark {
+    color: #d1f5e2;
+    transition: 0.2s all ease;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--heading-color);
+    transition: 0.2s all ease;
+}
+
+.titleDark {
+    color: rgb(253, 251, 224);
+    transition: 0.2s all ease;
+}
+
+.description p {
+    padding: 0.93rem 0.625rem 0 0.625rem;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+    transition: 0.2s all ease;
+}
+
+.descriptionDark p {
+    color: rgb(253, 251, 224);
+    transition: 0.2s all ease;
+}
+
+.readMore {
+    display: inline-block;
+    padding: 0.93rem 0.625rem 0 0.625rem;
+    font-size: 1.2rem;
+    color: rgb(63, 63, 63);
+    transition: 0.2s all ease;
+}
+
+.readMoreDark {
+    color: #dbe2e7;
+    transition: 0.2s all ease;
+}
+
+.readMore:hover {
+    text-decoration: underline;
+}
+
+@media only screen and (max-width: 1200px) {
+    .newsItem {
+        flex: 1 1 30%;        
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .newsItem {
+        flex: 1 1 46%;
+        height: 35vh;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .newsItem {
+        flex: 1 1 100%;
+        height: 35vh;
+    }
+}
