@@ -1,5 +1,9 @@
 .countrySelector {
-    padding: 0 1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 0 0 0 1rem;
     margin-top: 1.8rem;
     text-decoration: none;
     font-size: 1.2rem;
@@ -12,21 +16,37 @@
     flex: 3 1 auto;
 }
 
+.countrySelectorDark {
+    color: var(--app-text-color-dark-mode);
+}
+
 .countrySelector select {
     margin-left: 0.2rem;
     font-size: 1.2rem;
     cursor: pointer;
 }
 
+.countrySelectorDark select {
+    background-color: #002d3a;
+    color: var(--app-text-color-dark-mode);
+}
+
+@media only screen and (max-width: 768px) {
+    .countrySelector {
+        flex-direction: column;
+    }
+    .countrySelector select {
+        margin-top: 1rem;
+        margin-left: 0rem;
+    }
+}
+
 @media only screen and (max-width: 480px) {
     .countrySelector {
         font-size: 1.8rem;
-        margin-right: 1rem;
     }
     .countrySelector select {
         font-size: 1.8rem;
-        margin-left: 0;
-        margin-top: 0.2rem;
     }
 
     .countrySelector select option {

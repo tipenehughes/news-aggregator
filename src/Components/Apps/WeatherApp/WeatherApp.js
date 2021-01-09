@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { useQuery } from "react-query";
+
 import UpcomingWeather from "./UpcomingWeather";
 import Spinner from "../../Utilities/Spinner";
 
@@ -9,7 +11,7 @@ import rain from "../../../img/icons/rain.svg";
 import thunder from "../../../img/icons/thunder.svg";
 import snow from "../../../img/icons/snow.svg";
 import fog from "../../../img/icons/fog.svg";
-import wind from "../../../img/icons/wind.svg"
+import wind from "../../../img/icons/wind.svg";
 
 import styles from "./WeatherApp.module.css";
 
@@ -17,63 +19,51 @@ const WeatherApp = ({ theme }) => {
     const APP_KEY = process.env.REACT_APP_OPENWEATHER_KEY;
     const MAPS_APP_KEY = process.env.REACT_APP_GOOGLEMAPS_KEY;
 
-    const [isLoading, setIsLoading] = useState(true);
-    const [weather, setWeather] = useState({});
     const [units, setUnits] = useState("metric");
     const [unitSymbol, setUnitSymbol] = useState("c");
-    const [langLong, setLangLong] = useState({
-        lat: "0",
-        lon: "0",
-    });
-    const [location, setLocation] = useState("");
 
-    useEffect(() => {
-        getLangLong();
-        getLocation();
-        getWeather();
-    }, [units, isLoading]);
+    const getCoordinates = () => {
+        return new Promise(function (resolve, reject) {
+            navigator.geolocation.getCurrentPosition(resolve, reject);
+        });
+    };
 
-    const getLangLong = () => {
-        navigator.geolocation.getCurrentPosition(
-            function success(position) {
-                const lat = position.coords.latitude.toString();
-                const lon = position.coords.longitude.toString();
-                setLangLong({
-                    lat: lat,
-                    lon: lon,
-                });
-            },
-            function error() {
-                console.log("error");
-            }
+    const getWeather = async (units) => {
+        const position = await getCoordinates();
+        let latitude = position.coords.latitude;
+        let longitude = position.coords.longitude;
+        const response = await fetch(
+            `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,hourly&units=${units}&appid=${APP_KEY}`
         );
+        const data = await response.json();
+        return data;
     };
 
     const getLocation = async () => {
+        const position = await getCoordinates();
+        let latitude = position.coords.latitude;
+        let longitude = position.coords.longitude;
+        console.log(latitude, longitude);
         const response = await fetch(
-            `https://maps.googleapis.com/maps/api/geocode/json?latlng=${langLong.lat},${langLong.lon}&result_type=locality&key=${MAPS_APP_KEY}`
+            `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&result_type=locality&key=${MAPS_APP_KEY}`
         );
         const data = await response.json();
-        const dataFormatted =
+        const address =
             data.results[0] === undefined
                 ? ""
                 : data.results[0].formatted_address
                       .match(/[^,]+,[^,]+/g)
                       .toString();
-
-        setLocation(dataFormatted);
+        return address;
     };
-
-    // API call to fetch weather data based on units, and set isLoading to false when completed
-    const getWeather = async () => {
-        const response = await fetch(
-            `https://api.openweathermap.org/data/2.5/onecall?lat=${langLong.lat}&lon=${langLong.lon}&exclude=minutely,hourly&units=${units}&appid=${APP_KEY}`
-        );
-        const data = await response.json();
-        setWeather(data);
-        setIsLoading(false);
-    };
-
+    
+    const { data: weather, isLoading } = useQuery(["weather", units], () =>
+        getWeather(units)
+    );
+    const { data: location, isLoading: loadingLocation } = useQuery(
+        ["location"],
+        getLocation
+    );
     // Event handler that changes API call and sets unit symbol based on celcius or fahrenheit
 
     const handleClickUnits = (e) => {

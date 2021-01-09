@@ -17,7 +17,7 @@ const Menu = ({
     handleSectionChange,
     handleCountryChange,
     handleThemeChange,
-    handleSetmenuOpen,
+    handleSetMenuOpen,
     theme,
     menuOpen,
 }) => {
@@ -39,12 +39,15 @@ const Menu = ({
     ];
     return (
         <div
-            className={`${styles.menu} ${
-                theme === "dark" && styles.menuDark
-            } ${menuOpen && styles.menuOpen}`}
+            className={`${styles.menu} ${theme === "dark" && styles.menuDark} ${
+                menuOpen && styles.menuOpen
+            }`}
         >
             {pageWidth <= 480 && (
-                <ThemeSelector handleThemeChange={handleThemeChange} theme={theme} />
+                <ThemeSelector
+                    handleThemeChange={handleThemeChange}
+                    theme={theme}
+                />
             )}
             <div
                 className={`${styles.buttonContainer} ${
@@ -56,7 +59,8 @@ const Menu = ({
                         <button
                             key={i}
                             onClick={(e) => {
-                                handleSectionChange(e); handleSetmenuOpen();
+                                handleSectionChange(e);
+                                handleSetMenuOpen();
                             }}
                         >
                             <FontAwesomeIcon
@@ -68,7 +72,10 @@ const Menu = ({
                     );
                 })}
             </div>
-            <CountrySelector handleCountryChange={handleCountryChange} />
+            <CountrySelector
+                handleCountryChange={handleCountryChange}
+                theme={theme}
+            />
         </div>
     );
 };

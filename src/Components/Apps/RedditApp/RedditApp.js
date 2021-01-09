@@ -1,34 +1,42 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { useQuery } from "react-query";
 import RedditResults from "./RedditResults";
 import Spinner from "../../Utilities/Spinner";
 
 import styles from "./RedditApp.module.css";
 
 const RedditApp = ({ theme }) => {
-    const [redditData, setRedditData] = useState([]);
-    const [isLoading, setIsLoading] = useState("true");
     const [filter, setFilter] = useState("top");
+
+    // const getRedditData = async () => {
+    //     const response = await fetch(
+    //         `https://www.reddit.com/r/frugalmalefashion/${filter}.json?t=week`
+    //     );
+    //     const data = await response.json();
+    //     setRedditData(data.data.children);
+    //     setIsLoading(false);
+    // };
+
+    // useEffect(() => {
+    //     getRedditData();
+    // }, [filter]);
 
     const getRedditData = async () => {
         const response = await fetch(
             `https://www.reddit.com/r/frugalmalefashion/${filter}.json?t=week`
         );
         const data = await response.json();
-        setRedditData(data.data.children);
-        setIsLoading(false);
+        return data.data.children;
     };
 
-    useEffect(() => {
-        getRedditData();
-    }, [filter]);
+    const { data: redditData, isLoading } = useQuery(
+        ["redditData", filter],
+        getRedditData
+    );
 
     const handleFilterChange = (e) => {
         setFilter(e.target.innerText.toLowerCase());
     };
-
-    const reddit = redditData.map((data, i) => (
-        <RedditResults data={data} index={i} theme={theme} />
-    ));
 
     return isLoading ? (
         <Spinner />
@@ -65,11 +73,9 @@ const RedditApp = ({ theme }) => {
                 </button>
                 <button onClick={handleFilterChange}>
                     <svg
-                        className={
-                            `${styles.svg} ${
-                                theme === "dark" && styles.svgDark
-                            }`
-                        }
+                        className={`${styles.svg} ${
+                            theme === "dark" && styles.svgDark
+                        }`}
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
                     >
@@ -84,11 +90,9 @@ const RedditApp = ({ theme }) => {
                 </button>
                 <button onClick={handleFilterChange}>
                     <svg
-                        className={
-                            `${styles.svg} ${
-                                theme === "dark" && styles.svgDark
-                            }`
-                        }
+                        className={`${styles.svg} ${
+                            theme === "dark" && styles.svgDark
+                        }`}
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
                     >
@@ -102,8 +106,10 @@ const RedditApp = ({ theme }) => {
                     Top
                 </button>
             </div>
-            <div className={styles.results}>                
-                {reddit}
+            <div className={styles.results}>
+                {redditData.map((data, i) => (
+                    <RedditResults data={data} index={i} theme={theme} />
+                ))}
             </div>
         </div>
     );
