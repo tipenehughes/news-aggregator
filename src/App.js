@@ -1,7 +1,7 @@
 import React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Landing from "./Components/Landing/Landing";
 
@@ -10,14 +10,17 @@ import "./App.css";
 const App = () => {
     const queryClient = new QueryClient();
     return (
-        <QueryClientProvider client={queryClient}>
-            <Router>
+        <Router>
+            <QueryClientProvider client={queryClient}>
                 <div className="App">
-                    <Route exact path="/" component={Landing} />
+                    <Route path="/">
+                        <Landing />
+                    </Route>
                 </div>
-            </Router>
-            <ReactQueryDevtools initialIsOpen={false} />
-        </QueryClientProvider>
+
+                <ReactQueryDevtools initialIsOpen={false} />
+            </QueryClientProvider>
+        </Router>
     );
 };
 

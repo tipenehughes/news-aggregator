@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, useParams } from "react-router-dom";
 import NewsArea from "../NewsArea/NewsArea";
 import SubHeader from "../Headers/SubHeader";
 import styles from "../Landing/Landing.module.css";

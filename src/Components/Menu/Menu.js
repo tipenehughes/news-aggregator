@@ -30,12 +30,12 @@ const Menu = ({
     }, []);
 
     const buttons = [
-        ["all", faGlobe],
-        ["headlines", faNewspaper],
-        ["national", faFlagUsa],
-        ["covid", faPlusSquare],
-        ["politics", faLandmark],
-        ["sport", faFootballBall],
+        ["All", faGlobe],
+        ["Headlines", faNewspaper],
+        ["National", faFlagUsa],
+        ["COVID", faPlusSquare],
+        ["Politics", faLandmark],
+        ["Sport", faFootballBall],
     ];
 
 

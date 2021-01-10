@@ -1,26 +1,23 @@
 import React, { useState } from "react";
 import { useQueries } from "react-query";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useParams } from "react-router-dom";
 
 import PageHeader from "../Headers/PageHeader";
-import SubHeader from "../Headers/SubHeader";
 import Menu from "../Menu/Menu";
 import Headlines from "../Headlines/Headlines";
 import NewsSection from "../NewsArea/NewsSection";
 import InfoApps from "../Apps/InfoApps";
 import Spinner from "../Utilities/Spinner";
 
-import styles from "./Landing.module.css";
-
-const Landing = (props) => {
+const Landing = () => {
     const [country, setCountry] = useState("nz");
     const [theme, setTheme] = useState("light");
 
     const [menuOpen, setMenuOpen] = useState(false);
 
-    const APP_KEY = process.env.REACT_APP_NEWSAPI_KEY;
+    const APP_KEY = "a409434a63d1418494b27a45dd03c022";
 
-    console.log(props);
+    // process.env.REACT_APP_NEWSAPI_KEY
 
     const nz = "&domains=stuff.co.nz,rnz.co.nz,nzherald.co.nz,newshub.co.nz";
     const us = "&domains=cnn.com,foxnews.com,nytimes.com,msnbc.com";
@@ -89,13 +86,13 @@ const Landing = (props) => {
     const isSuccess = statusArray.every(status);
 
     const resultsArray = [headlines, national, covid, politics, sport];
-    
+
     const subHeadlines = [
-        "headlines",
-        "national",
-        "covid",
-        "politics",
-        "sport",
+        "Headlines",
+        "National",
+        "Covid",
+        "Politics",
+        "Sport",
     ];
 
     // Event handler which updates and specifies country to display based on option selected in Menu component
@@ -114,23 +111,22 @@ const Landing = (props) => {
         return !menuOpen ? setMenuOpen(true) : setMenuOpen(false);
     };
 
+    const { sections } = useParams();
+    console.log(sections);
+
     return !isSuccess ? (
         <Spinner />
     ) : (
         <>
-            <div className="Menu">
-                <Menu
-                    handleCountryChange={handleCountryChange}
-                    handleThemeChange={handleThemeChange}
-                    handleSetMenuOpen={handleSetMenuOpen}
-                    theme={theme}
-                    menuOpen={menuOpen}
-                />
-            </div>
+            <Menu
+                handleCountryChange={handleCountryChange}
+                handleThemeChange={handleThemeChange}
+                handleSetMenuOpen={handleSetMenuOpen}
+                theme={theme}
+                menuOpen={menuOpen}
+            />
             <div
-                className={`${styles.landing} ${
-                    theme === "dark" && styles.landingDark
-                }`}
+                className={`${"landing"} ${theme === "dark" && "landingDark"}`}
             >
                 <PageHeader
                     handleThemeChange={handleThemeChange}
@@ -140,25 +136,33 @@ const Landing = (props) => {
                 />
                 <InfoApps theme={theme} />
             </div>
-            <div
-                className={`${styles.landing} ${
-                    theme === "dark" && styles.landingDark
-                }`}
-            >
-                <SubHeader Subheading={subHeadlines[0]} theme={theme} />
-                <div className={styles.newsArea}>
-                    <Headlines headlines={headlines.data} theme={theme} />
-                </div>
-            </div>
-            {resultsArray.map((articles, i) => (
-                <NewsSection
-                    country={country}
-                    Subheading={subHeadlines[i + 1]}
-                    index={i}
-                    theme={theme}
-                    data={articles.data}
-                    key={i}
-                />
+            <Route exact path={["/", "/all"]}>
+                <Headlines headlines={headlines.data} theme={theme} />
+                {resultsArray.slice(1, 5).map((articles, i) => (
+                    <NewsSection
+                        country={country}
+                        Subheading={subHeadlines[i + 1]}
+                        index={i}
+                        theme={theme}
+                        data={articles.data}
+                        key={i}
+                    />
+                ))}
+            </Route>
+            <Route path="/headlines">
+                <Headlines headlines={headlines.data} theme={theme} />
+            </Route>
+            {resultsArray.slice(1, 5).map((articles, i) => (
+                <Route exact path={`/${subHeadlines[i + 1]}`}>
+                    <NewsSection
+                        country={country}
+                        Subheading={subHeadlines[i + 1]}
+                        index={i}
+                        theme={theme}
+                        data={articles.data}
+                        key={i}
+                    />
+                </Route>
             ))}
             ;
         </>

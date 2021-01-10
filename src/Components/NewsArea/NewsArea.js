@@ -4,7 +4,7 @@ import NewsItem from "./NewsItem";
 import styles from "./NewsArea.module.css";
 
 const NewsArea = ({ index, theme, data }) => {
-    return (        
+    return (
         <div className={styles.newsArea}>
             {data.map((newsInfo) => (
                 <NewsItem

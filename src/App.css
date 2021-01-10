@@ -21,14 +21,59 @@ a {
     color: #000;
 }
 
+.newsArea {
+    width: 100%;
+    min-height: 60%;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.landing {
+    padding-left: 15vw;
+    background-color: #e7e7e7;
+    transition: 0.2s all ease;
+}
+.landingDark {
+    background-color: #002631;
+    transition: 0.2s all ease;
+}
+
+.newsArea {
+    width: 100%;
+    min-height: 60%;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 768px) {
+    .landing {
+        padding-left: 20vw;
+    }
+}
+
 @media only screen and (max-width: 1300px) {
     html {
         font-size: 12px;
     }
 }
 
+@media only screen and (max-width: 768px) {
+    .landing {
+        padding-left: 20vw;
+    }
+}
+
 @media only screen and (max-width: 480px) {
     html {
         font-size: 11px;
+    }
+    .landing {
+        padding-left: 0;
     }
 }
