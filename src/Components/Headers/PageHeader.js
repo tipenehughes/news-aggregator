@@ -17,8 +17,6 @@ const PageHeader = ({
         });
     }, []);
 
-    console.log(pageWidth);
-
     return (
         <div
             className={`${styles.Header} ${

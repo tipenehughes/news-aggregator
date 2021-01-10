@@ -31,10 +31,12 @@
     width: 100%;
 }
 
-.buttonContainer button {
+.link {
     width: 100%;
     height: 3rem;
-    text-align: left;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;    
     padding-left: 1rem;
     margin-bottom: 0.7rem;
     text-decoration: none;
@@ -45,12 +47,11 @@
     outline: none;
     cursor: pointer;
     color: rgb(58, 58, 58);
-    display: block;
     transition: 0.1s box-shadow ease;
     flex: 1 1 auto;
 }
 
-.buttonContainer button:hover {
+.link:hover {
     color: #1967d2;
     background-color: rgba(66, 133, 244, 0.149);
     box-shadow: 6px 6px 12px #cbd2db, -6px -6px 12px #ffffff;
@@ -61,12 +62,12 @@
     transition: 0.1s box-shadow ease;
 }
 
-.buttonContainerDark button {
+.buttonContainerDark .link {
     color: rgb(253, 251, 224);
     transition: 0.2s all ease;
 }
 
-.buttonContainerDark button:hover {
+.buttonContainerDark .link:hover {
     color: rgb(253, 251, 224);
     background-color: #002631;
     box-shadow: 6px 6px 12px #001921, -6px -6px 12px #003341;
@@ -97,7 +98,7 @@
     .buttonContainer {
         flex: 2 1 auto;
     }
-    .buttonContainer button {
+    .link {
         font-size: 1.8rem;        
     }
     .menu > div:first-child {

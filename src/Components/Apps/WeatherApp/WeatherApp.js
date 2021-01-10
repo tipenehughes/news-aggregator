@@ -43,7 +43,6 @@ const WeatherApp = ({ theme }) => {
         const position = await getCoordinates();
         let latitude = position.coords.latitude;
         let longitude = position.coords.longitude;
-        console.log(latitude, longitude);
         const response = await fetch(
             `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&result_type=locality&key=${MAPS_APP_KEY}`
         );
@@ -56,11 +55,11 @@ const WeatherApp = ({ theme }) => {
                       .toString();
         return address;
     };
-    
+
     const { data: weather, isLoading } = useQuery(["weather", units], () =>
         getWeather(units)
     );
-    const { data: location, isLoading: loadingLocation } = useQuery(
+    const { data: location } = useQuery(
         ["location"],
         getLocation
     );

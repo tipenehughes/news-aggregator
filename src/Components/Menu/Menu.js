@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link, useRouteMatch } from "react-router-dom";
 import CountrySelector from "./CountrySelector/CountrySelector";
 import ThemeSelector from "../Utilities/ThemeSelector";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,7 +15,6 @@ import {
 import styles from "./Menu.module.css";
 
 const Menu = ({
-    handleSectionChange,
     handleCountryChange,
     handleThemeChange,
     handleSetMenuOpen,
@@ -30,13 +30,15 @@ const Menu = ({
     }, []);
 
     const buttons = [
-        ["All", faGlobe],
-        ["Headlines", faNewspaper],
-        ["National", faFlagUsa],
-        ["COVID-19", faPlusSquare],
-        ["Politics", faLandmark],
-        ["Sport", faFootballBall],
+        ["all", faGlobe],
+        ["headlines", faNewspaper],
+        ["national", faFlagUsa],
+        ["covid", faPlusSquare],
+        ["politics", faLandmark],
+        ["sport", faFootballBall],
     ];
+
+
     return (
         <div
             className={`${styles.menu} ${theme === "dark" && styles.menuDark} ${
@@ -56,10 +58,11 @@ const Menu = ({
             >
                 {buttons.map((data, i) => {
                     return (
-                        <button
+                        <Link
+                            to={`/${data[0]}`}
                             key={i}
+                            className={styles.link}
                             onClick={(e) => {
-                                handleSectionChange(e);
                                 handleSetMenuOpen();
                             }}
                         >
@@ -68,7 +71,7 @@ const Menu = ({
                                 icon={data[1]}
                             />
                             {data[0]}
-                        </button>
+                        </Link>
                     );
                 })}
             </div>

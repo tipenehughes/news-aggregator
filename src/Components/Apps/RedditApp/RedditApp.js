@@ -108,7 +108,12 @@ const RedditApp = ({ theme }) => {
             </div>
             <div className={styles.results}>
                 {redditData.map((data, i) => (
-                    <RedditResults data={data} index={i} theme={theme} />
+                    <RedditResults
+                        data={data}
+                        index={i}
+                        theme={theme}
+                        key={i}
+                    />
                 ))}
             </div>
         </div>
