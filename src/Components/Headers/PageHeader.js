@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ThemeSelector from "../Utilities/ThemeSelector";
-import MobileMenuButton from "../Menu/MobileMenuButton";
+import MobileMenuButton from "../Menu/MobileMenuButton/MobileMenuButton";
 import styles from "./Header.module.css";
 
 const PageHeader = ({
@@ -19,8 +19,8 @@ const PageHeader = ({
 
     return (
         <div
-            className={`${styles.Header} ${
-                theme === "dark" && styles.HeaderDark
+            className={`${styles.header} ${styles.mainHeader} ${
+                theme === "dark" && styles.headerDark
             }`}
         >
             <h1>My News</h1>
@@ -32,7 +32,10 @@ const PageHeader = ({
                 />
             )}
             {pageWidth > 480 && (
-                <ThemeSelector handleThemeChange={handleThemeChange} theme={theme} />
+                <ThemeSelector
+                    handleThemeChange={handleThemeChange}
+                    theme={theme}
+                />
             )}
         </div>
     );

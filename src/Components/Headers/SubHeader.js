@@ -5,8 +5,8 @@ import styles from "./Header.module.css";
 const SubHeader = ({ Subheading, theme }) => {
     return (
         <div
-            className={`${styles.Header} ${
-                theme === "dark" && styles.HeaderDark
+            className={`${styles.header} ${
+                theme === "dark" && styles.headerDark
             }`}
         >
             <h2>{Subheading}</h2>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useQueries } from "react-query";
-import { Route, Switch, useParams } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 import PageHeader from "../Headers/PageHeader";
 import Menu from "../Menu/Menu";
@@ -15,7 +15,7 @@ const Landing = () => {
 
     const [menuOpen, setMenuOpen] = useState(false);
 
-    const APP_KEY = "a409434a63d1418494b27a45dd03c022";
+    const APP_KEY = "bb08f08572f84a99acf7769203e14298";
 
     // process.env.REACT_APP_NEWSAPI_KEY
 
@@ -111,13 +111,10 @@ const Landing = () => {
         return !menuOpen ? setMenuOpen(true) : setMenuOpen(false);
     };
 
-    const { sections } = useParams();
-    console.log(sections);
-
     return !isSuccess ? (
         <Spinner />
     ) : (
-        <>
+        <Route path="/">
             <Menu
                 handleCountryChange={handleCountryChange}
                 handleThemeChange={handleThemeChange}
@@ -165,7 +162,7 @@ const Landing = () => {
                 </Route>
             ))}
             ;
-        </>
+        </Route>
     );
 };
 

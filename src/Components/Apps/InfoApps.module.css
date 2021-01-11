@@ -6,3 +6,9 @@
     padding: 0 1rem;
     margin: 0;
 }
+
+@media only screen and (max-width: 480px) {
+    .infoApps {
+        padding-top: 13vh;
+    }
+}

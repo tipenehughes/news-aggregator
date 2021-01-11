@@ -11,11 +11,18 @@ const ThemeSelector = ({ handleThemeChange, theme }) => {
                 theme === "dark" && styles.themeDark
             }`}
         >
-            <button onClick={handleThemeChange}>
+            <button
+                onClick={handleThemeChange}
+                className={styles.buttonContainer}
+                style={{
+                    justifyContent:
+                        theme === "dark" ? "flex-end" : "flex-start",
+                }}
+            >
                 {theme === "light" ? (
-                    <FontAwesomeIcon icon={faMoon} />
+                    <FontAwesomeIcon icon={faMoon} className={styles.icon} />
                 ) : (
-                    <FontAwesomeIcon icon={faSun} />
+                    <FontAwesomeIcon icon={faSun} className={styles.icon} />
                 )}
             </button>
         </div>

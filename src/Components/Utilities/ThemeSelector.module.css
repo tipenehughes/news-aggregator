@@ -3,21 +3,33 @@
     margin-right: 2.5rem;
 }
 
-.theme button {
+.theme .buttonContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     font-size: 2rem;
     color: var(--heading-color);
-    background: none;
-    border: none;
+    background: #fff;
+    border: 1px solid rgb(219, 219, 219);
+    box-shadow: 8px 8px 16px #d9d9d9, -8px -8px 16px #ffffff;
+    border-radius: 20px;
     outline: none;
     cursor: pointer;
+    width: 4rem;
+    padding: 1px;
 }
 
-.themeDark button {    
-    color: rgb(253, 251, 224);    
+.themeDark .buttonContainer {
+    color: rgb(253, 251, 224);
+    background: #002631;
+    border: 1px solid rgba(77, 77, 77, 0.397);
+    box-shadow: 8px 8px 16px #00202a,
+    -8px -8px 16px #002c38;
 }
 
 @media only screen and (max-width: 480px) {
-    .theme button {
+    .theme .buttonContainer {
         font-size: 3rem;
+        width: 6rem;
     }
 }

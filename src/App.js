@@ -13,7 +13,7 @@ const App = () => {
         <Router>
             <QueryClientProvider client={queryClient}>
                 <div className="App">
-                    <Route path="/">
+                    <Route>
                         <Landing />
                     </Route>
                 </div>
