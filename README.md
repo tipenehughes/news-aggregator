@@ -126,4 +126,4 @@ Project Link: [https://news-aggregator-react.netlify.app/](https://news-aggregat
 [linkedin-url]: https://www.linkedin.com/in/tipene-hughes/
 [project-image]: src/img/Thumbnails/news.png
 [news-gif]: src/img/Thumbnails/news.gif
-[dark-gif]: src/img/Thumbnails/news.gif
+[dark-gif]: src/img/Thumbnails/dark.gif
