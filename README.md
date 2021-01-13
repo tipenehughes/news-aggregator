@@ -1,68 +1,129 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <h1 align="center">Welcome to News Aggregator App :newspaper:</h3>
 
-## Available Scripts
+  <p align="center">
+    News Aggregator that displays dynamic local and international news articles, local weather, a selection of current stock prices, and a reddit feed!    
+    <br />
+    <br />
+    :round_pushpin:<a href="https://news-aggregator-react.netlify.app/">View Demo</a>
+  </p>
+</p>
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#description-ledger">Description</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started-wrench">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage-mag">Usage</a></li>    
+    <li><a href="#contact-mailbox_with_mail">Contact</a></li>
+    <li><a href="#acknowledgements-clap">Acknowledgements</a></li>
+  </ol>
+</details>
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<!-- ABOUT THE PROJECT -->
+## Description :ledger:
 
-### `npm run build`
+<br/>
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[![Project image][project-image]](src/Assets/Thumbnails/news.png)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+<br/>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Every morning, I have too many tabs open scouring through a ton of different websites trying to get the info I need to start the day. I built this app to solve that problem by bringing all of the info I need in to one place. This app displays current news from New Zealand and the US, along with up to date local weather, current prices for stocks I follow, and a feed from r/frugalmalefashion to keep on top of any deals! 
 
-### `npm run eject`
+A list of resources used are mentioned in the acknowledgements.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Keep reading to see more about this project!
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Built With 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* [React](https://reactjs.org/)
+* [CSS Modules](https://github.com/css-modules/css-modules)
+* [React Router](https://reactrouter.com/)
+* [React Query](https://react-query.tanstack.com/)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+<!-- GETTING STARTED -->
+## Getting Started :wrench:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Follow these steps to get a local copy up and running.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Prerequisites
 
-### Code Splitting
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### Installation
 
-### Analyzing the Bundle Size
+1. Clone the repo
+   ```sh
+   git clone https://github.com/tipenehughes/news-aggregator
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Run the app
+   ```sh
+   npm start
+   ```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+<!-- USAGE EXAMPLES -->
+## Usage :mag:
 
-### Making a Progressive Web App
+:round_pushpin:<a href="https://news-aggregator-react.netlify.app/">View Live Demo Here!</a>
+<br/>
+<br/>
+[![News gif][news-gif]](src/img/Thumbnails/news.gif)
+<br />
+:point_up: This app displays news, along with local weather, stock prices, and a reddit feed. News can be sorted by topic and country (currently NZ and US) 
+<br/>
+<br />
+[![Dark gif][dark-gif]](src/img/Thumbnails/dark.gif)
+<br />
+:point_up: Dark theme and Reddit feed demonstration 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+<!-- CONTACT -->
+## Contact :mailbox_with_mail:
 
-### Advanced Configuration
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+:e-mail: tipenehughes@gmail.com
 
-### Deployment
+Project Link: [https://news-aggregator-react.netlify.app/](https://news-aggregator-react.netlify.app/)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+<!-- ACKNOWLEDGEMENTS -->
+## Acknowledgements :clap:
+* [News API](https://newsapi.org/)
+* [OpenWeather API](https://openweathermap.org/)
+* [Reddit](https://www.reddit.com/)
+* [Font Awesome](https://fontawesome.com/)
 
-### `npm run build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+<!-- MARKDOWN LINKS & IMAGES -->
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=2867B2
+[linkedin-url]: https://www.linkedin.com/in/tipene-hughes/
+[project-image]: src/img/Thumbnails/news.png
+[news-gif]: src/img/Thumbnails/news.gif
+[dark-gif]: src/img/Thumbnails/news.gif

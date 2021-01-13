@@ -23,7 +23,7 @@ const PageHeader = ({
                 theme === "dark" && styles.headerDark
             }`}
         >
-            <h1>My News</h1>
+            <h1>Todays News</h1>
             {pageWidth <= 480 && (
                 <MobileMenuButton
                     handleSetMenuOpen={handleSetMenuOpen}

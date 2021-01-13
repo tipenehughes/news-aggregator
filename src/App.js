@@ -17,8 +17,6 @@ const App = () => {
                         <Landing />
                     </Route>
                 </div>
-
-                <ReactQueryDevtools initialIsOpen={false} />
             </QueryClientProvider>
         </Router>
     );

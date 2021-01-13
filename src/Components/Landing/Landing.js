@@ -15,9 +15,9 @@ const Landing = () => {
 
     const [menuOpen, setMenuOpen] = useState(false);
 
-    const APP_KEY = "bb08f08572f84a99acf7769203e14298";
+    const APP_KEY = process.env.REACT_APP_NEWSAPI_KEY;
 
-    // process.env.REACT_APP_NEWSAPI_KEY
+    // process.env.REACT_APP_NEWSAPI_KEY;
 
     const nz = "&domains=stuff.co.nz,rnz.co.nz,nzherald.co.nz,newshub.co.nz";
     const us = "&domains=cnn.com,foxnews.com,nytimes.com,msnbc.com";
