@@ -1,3 +1,5 @@
 var Configs = {
-    apiKey: "",
+    newsApiKey: "",
+    weatherApiKey: "",
+    mapsApiKey: "",
 };

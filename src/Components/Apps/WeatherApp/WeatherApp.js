@@ -16,8 +16,8 @@ import wind from "../../../img/icons/wind.svg";
 import styles from "./WeatherApp.module.css";
 
 const WeatherApp = ({ theme }) => {
-    const APP_KEY = process.env.REACT_APP_OPENWEATHER_KEY;
-    const MAPS_APP_KEY = process.env.REACT_APP_GOOGLEMAPS_KEY;
+    const APP_KEY = window.Configs.weatherApiKey;
+    const MAPS_APP_KEY = window.Configs.mapsApiKey;
 
     const [units, setUnits] = useState("metric");
     const [unitSymbol, setUnitSymbol] = useState("c");
@@ -59,10 +59,7 @@ const WeatherApp = ({ theme }) => {
     const { data: weather, isLoading } = useQuery(["weather", units], () =>
         getWeather(units)
     );
-    const { data: location } = useQuery(
-        ["location"],
-        getLocation
-    );
+    const { data: location } = useQuery(["location"], getLocation);
     // Event handler that changes API call and sets unit symbol based on celcius or fahrenheit
 
     const handleClickUnits = (e) => {

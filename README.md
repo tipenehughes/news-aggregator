@@ -8,10 +8,12 @@
     <br />
     <br />
     :round_pushpin:<a href="https://news-aggregator-react.netlify.app/">View Demo</a>
+  <br/>
+    Note: To view full app including news articles you will need to run in a local environment due to API provider restrictions
   </p>
 </p>
 
-
+<br/>
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
@@ -74,15 +76,16 @@ Follow these steps to get a local copy up and running.
   ```
 
 ### Installation
-
-1. Clone the repo
+1. Get free API Keys from <a href="https://newsapi.org/">NewsAPI</a>, <a href="https://developers.google.com/maps/documentation/geocoding/get-api-key">Google</a> and <a href="https://openweathermap.org/appid">OpenWeather</a>
+2. Clone the repo
    ```sh
    git clone https://github.com/tipenehughes/news-aggregator
    ```
-2. Install NPM packages
+3. Install NPM packages
    ```sh
    npm install
    ```
+4. Enter your API keys in ```config.js``` in the ```public``` directory
 3. Run the app
    ```sh
    npm start

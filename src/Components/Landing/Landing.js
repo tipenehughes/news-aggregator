@@ -16,7 +16,7 @@ const Landing = () => {
 
     const [menuOpen, setMenuOpen] = useState(false);
 
-    const APP_KEY = window.Configs.apiKey;
+    const APP_KEY = window.Configs.newsApiKey;
 
     const nz = "&domains=stuff.co.nz,rnz.co.nz,nzherald.co.nz,newshub.co.nz";
     const us = "&domains=cnn.com,foxnews.com,nytimes.com,msnbc.com";
