@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <h1 align="center">Welcome to News Aggregator App :newspaper:</h3>
+  <h1 align="center">News Aggregator App :newspaper:</h3>
 
   <p align="center">
     News Aggregator that displays dynamic local and international news articles, local weather, a selection of current stock prices, and a reddit feed!    
