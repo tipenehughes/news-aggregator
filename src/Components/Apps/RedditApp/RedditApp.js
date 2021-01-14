@@ -8,19 +8,6 @@ import styles from "./RedditApp.module.css";
 const RedditApp = ({ theme }) => {
     const [filter, setFilter] = useState("top");
 
-    // const getRedditData = async () => {
-    //     const response = await fetch(
-    //         `https://www.reddit.com/r/frugalmalefashion/${filter}.json?t=week`
-    //     );
-    //     const data = await response.json();
-    //     setRedditData(data.data.children);
-    //     setIsLoading(false);
-    // };
-
-    // useEffect(() => {
-    //     getRedditData();
-    // }, [filter]);
-
     const getRedditData = async () => {
         const response = await fetch(
             `https://www.reddit.com/r/frugalmalefashion/${filter}.json?t=week`

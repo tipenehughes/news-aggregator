@@ -8,6 +8,7 @@ import Headlines from "../Headlines/Headlines";
 import NewsSection from "../NewsArea/NewsSection";
 import InfoApps from "../Apps/InfoApps";
 import Spinner from "../Utilities/Spinner";
+import ErrorMessage from "./ErrorMessage";
 
 const Landing = () => {
     const [country, setCountry] = useState("nz");
@@ -15,9 +16,7 @@ const Landing = () => {
 
     const [menuOpen, setMenuOpen] = useState(false);
 
-    const APP_KEY = process.env.REACT_APP_NEWSAPI_KEY;
-
-    // process.env.REACT_APP_NEWSAPI_KEY;
+    const APP_KEY = window.Configs.apiKey;
 
     const nz = "&domains=stuff.co.nz,rnz.co.nz,nzherald.co.nz,newshub.co.nz";
     const us = "&domains=cnn.com,foxnews.com,nytimes.com,msnbc.com";
@@ -29,13 +28,13 @@ const Landing = () => {
                 : `https://newsapi.org/v2/top-headlines?country=${country}&apiKey=${APP_KEY}`
         );
         const data = await response.json();
-        return data.articles;
+        return data;
     };
     const getNational = async () => {
         const response = await fetch(
             country === "us"
                 ? `https://newsapi.org/v2/top-headlines?country=${country}&apiKey=${APP_KEY}`
-                : `http://newsapi.org/v2/everything?q=national${nz}&apiKey=${APP_KEY}`
+                : `https://newsapi.org/v2/everything?q=national${nz}&apiKey=${APP_KEY}`
         );
         const data = await response.json();
         return data.articles;
@@ -43,8 +42,8 @@ const Landing = () => {
     const getCovid = async () => {
         const response = await fetch(
             country === "us"
-                ? `http://newsapi.org/v2/everything?q=covid${us}&apiKey=${APP_KEY}`
-                : `http://newsapi.org/v2/everything?q=covid${nz}&apiKey=${APP_KEY}`
+                ? `https://newsapi.org/v2/everything?q=covid${us}&apiKey=${APP_KEY}`
+                : `https://newsapi.org/v2/everything?q=covid${nz}&apiKey=${APP_KEY}`
         );
         const data = await response.json();
         return data.articles;
@@ -52,8 +51,8 @@ const Landing = () => {
     const getPolitics = async () => {
         const response = await fetch(
             country === "us"
-                ? `http://newsapi.org/v2/everything?q=politics${us}&apiKey=${APP_KEY}`
-                : `http://newsapi.org/v2/everything?q=politics${nz}&apiKey=${APP_KEY}`
+                ? `https://newsapi.org/v2/everything?q=politics${us}&apiKey=${APP_KEY}`
+                : `https://newsapi.org/v2/everything?q=politics${nz}&apiKey=${APP_KEY}`
         );
         const data = await response.json();
         return data.articles;
@@ -61,8 +60,8 @@ const Landing = () => {
     const getSport = async () => {
         const response = await fetch(
             country === "us"
-                ? `http://newsapi.org/v2/top-headlines?country=${country}&category=sports&apiKey=${APP_KEY}`
-                : `http://newsapi.org/v2/top-headlines?country=${country}&category=sports&apiKey=${APP_KEY}`
+                ? `https://newsapi.org/v2/top-headlines?country=${country}&category=sports&apiKey=${APP_KEY}`
+                : `https://newsapi.org/v2/top-headlines?country=${country}&category=sports&apiKey=${APP_KEY}`
         );
         const data = await response.json();
         return data.articles;
@@ -78,19 +77,18 @@ const Landing = () => {
 
     const [headlines, national, covid, politics, sport] = results;
 
+    const resultsArray = [headlines, national, covid, politics, sport];
+
     // To get status from results array
     const statusArray = results.map((o) => o.status);
-
     // To check if all results have loaded
-    const status = (value) => value === "success";
-    const isSuccess = statusArray.every(status);
-
-    const resultsArray = [headlines, national, covid, politics, sport];
+    const success = (value) => value === "success";
+    const isSuccess = statusArray.every(success);
 
     const subHeadlines = [
         "Headlines",
         "National",
-        "Covid",
+        "COVID",
         "Politics",
         "Sport",
     ];
@@ -111,9 +109,13 @@ const Landing = () => {
         return !menuOpen ? setMenuOpen(true) : setMenuOpen(false);
     };
 
-    return !isSuccess ? (
-        <Spinner />
-    ) : (
+    const loading = (
+        <div className={`${"landing"} ${theme === "dark" && "landingDark"}`}>
+            <Spinner />
+        </div>
+    );
+
+    return (
         <Route path="/">
             <Menu
                 handleCountryChange={handleCountryChange}
@@ -133,35 +135,49 @@ const Landing = () => {
                 />
                 <InfoApps theme={theme} />
             </div>
-            <Route exact path={["/", "/all"]}>
-                <Headlines headlines={headlines.data} theme={theme} />
-                {resultsArray.slice(1, 5).map((articles, i) => (
-                    <NewsSection
-                        country={country}
-                        Subheading={subHeadlines[i + 1]}
-                        index={i}
-                        theme={theme}
-                        data={articles.data}
-                        key={i}
-                    />
-                ))}
-            </Route>
-            <Route path="/headlines">
-                <Headlines headlines={headlines.data} theme={theme} />
-            </Route>
-            {resultsArray.slice(1, 5).map((articles, i) => (
-                <Route exact path={`/${subHeadlines[i + 1]}`}>
-                    <NewsSection
-                        country={country}
-                        Subheading={subHeadlines[i + 1]}
-                        index={i}
-                        theme={theme}
-                        data={articles.data}
-                        key={i}
-                    />
-                </Route>
-            ))}
-            ;
+            {!isSuccess ? (
+                loading
+            ) : !isSuccess || headlines.data.status === "error" ? (
+                <ErrorMessage msg={headlines.data.message} theme={theme} />
+            ) : (
+                <>
+                    <Route exact path={["/", "/all"]}>
+                        <Headlines
+                            headlines={headlines.data.articles}
+                            theme={theme}
+                        />
+                        {resultsArray.slice(1, 5).map((articles, i) => (
+                            <NewsSection
+                                country={country}
+                                Subheading={subHeadlines[i + 1]}
+                                index={i}
+                                theme={theme}
+                                data={articles.data}
+                                key={i}
+                            />
+                        ))}
+                    </Route>
+                    <Route path="/headlines">
+                        <Headlines
+                            headlines={headlines.data.articles}
+                            theme={theme}
+                        />
+                    </Route>
+                    {resultsArray.slice(1, 5).map((articles, i) => (
+                        <Route exact path={`/${subHeadlines[i + 1]}`}>
+                            <NewsSection
+                                country={country}
+                                Subheading={subHeadlines[i + 1]}
+                                index={i}
+                                theme={theme}
+                                data={articles.data}
+                                key={i}
+                            />
+                        </Route>
+                    ))}
+                    ;
+                </>
+            )}
         </Route>
     );
 };

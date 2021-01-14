@@ -1,0 +1,9 @@
+.error {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.errorLink {
+  color: #0645AD;
+  text-decoration: underline;
+}

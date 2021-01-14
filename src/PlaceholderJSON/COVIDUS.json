@@ -1,0 +1,266 @@
+{
+  "status": "ok",
+  "totalResults": 3217,
+  "articles": [
+  {
+  "source": {
+  "id": "cnn",
+  "name": "CNN"
+  },
+  "author": "Holly Yan, CNN",
+  "title": "Covid-19 now kills more than 1 American every minute. And the rate keeps accelerating as the death toll tops 300,000",
+  "description": "In the past week, an average of 2,403 people in the US have died from Covid-19 every day. That's an average of one Covid-19 death every 40 seconds. And hospitalizations keep breaking records.",
+  "url": "https://www.cnn.com/2020/12/14/health/us-covid-deaths-300k/index.html",
+  "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/201210000335-covid-19-reliable-sources-1206-super-tease.jpg",
+  "publishedAt": "2020-12-14T20:58:31Z",
+  "content": "(CNN)Every day, the number of families mourning the death of a loved one to Covid-19 keeps growing at a devastating rate. \r\nMore than 300,000 people in the US have died from coronavirus since the fir… [+1343 chars]"
+  },
+  {
+  "source": {
+  "id": "cnn",
+  "name": "CNN"
+  },
+  "author": "Christina Maxouris, CNN",
+  "title": "US sets Covid-19 case, hospitalization and death records ahead of key meeting for Moderna's vaccine",
+  "description": "The US on Wednesday reported record numbers for Covid-19 cases, hospitalizations and deaths, ahead of a key meeting for what could be the country's second Covid-19 vaccine to get the green light.",
+  "url": "https://www.cnn.com/2020/12/17/health/us-coronavirus-thursday/index.html",
+  "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/201217013300-us-coronavirus-1215-super-tease.jpg",
+  "publishedAt": "2020-12-17T07:42:10Z",
+  "content": "(CNN)The US on Wednesday reported record numbers for Covid-19 cases, hospitalizations and deaths, ahead of a key meeting for what could be the country's second Covid-19 vaccine to get the green light… [+7296 chars]"
+  },
+  {
+  "source": {
+  "id": "cnn",
+  "name": "CNN"
+  },
+  "author": null,
+  "title": "Fauci says he's confident in the vaccine. Here's why",
+  "description": "Dr. Anthony Fauci, the director of the National Institute of Allergy and Infectious Diseases, said he feels fine after getting a Covid-19 vaccine and is very confident in the efficacy of the Moderna and Pfizer Covid-19 vaccines.",
+  "url": "https://www.cnn.com/videos/health/2020/12/22/anthony-fauci-moderna-vaccine-sot-vpx-tsr.cnn",
+  "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/201222181942-fauci-sot-super-tease.jpg",
+  "publishedAt": "2020-12-22T23:39:46Z",
+  "content": null
+  },
+  {
+  "source": {
+  "id": "cnn",
+  "name": "CNN"
+  },
+  "author": null,
+  "title": "Covid survivor gets emotional over surprise gift",
+  "description": "Janice Cockfield was near death for almost two months with Covid-19. After 110 days in the hospital, she was able to go home. CNN's Brooke Baldwin has more.",
+  "url": "https://www.cnn.com/videos/health/2020/12/23/coronavirus-survivor-leaves-hospital-delta-surprise-sot-vpx-nr.cnn",
+  "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/201223152327-cockfield-sot-super-tease.jpg",
+  "publishedAt": "2020-12-23T20:50:07Z",
+  "content": null
+  },
+  {
+  "source": {
+  "id": "cnn",
+  "name": "CNN"
+  },
+  "author": null,
+  "title": "Go inside a Covid-19 maternity ward",
+  "description": "CNN's Arwa Damon goes inside an Istanbul maternity ward where the mothers are also being treated for Covid-19.",
+  "url": "https://www.cnn.com/videos/health/2020/12/16/coronavirus-maternity-ward-istanbul-damon-pkg-ctw-vpx.cnn",
+  "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/201216111817-arwa-damon-istanbul-covid-maternity-ward-01-vpx-super-tease.jpg",
+  "publishedAt": "2020-12-16T16:28:29Z",
+  "content": null
+  },
+  {
+  "source": {
+  "id": "cnn",
+  "name": "CNN"
+  },
+  "author": null,
+  "title": "What's in the $900 billion Covid-19 relief package",
+  "description": "CNN's John Harwood breaks down what's in the $900 billion Covid relief package.",
+  "url": "https://www.cnn.com/videos/business/2020/12/28/stimulus-covid-relief-bill-unemployment.cnnbusiness",
+  "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/201222153147-unemployment-benefits-coronavirus-super-tease.jpg",
+  "publishedAt": "2020-12-28T15:11:39Z",
+  "content": null
+  },
+  {
+  "source": {
+  "id": "cnn",
+  "name": "CNN"
+  },
+  "author": "Devon M. Sayers and Veronica Stracqualursi, CNN",
+  "title": "South Carolina governor tests positive for Covid-19",
+  "description": "South Carolina Gov. Henry McMaster tested positive for Covid-19 Monday evening.",
+  "url": "https://www.cnn.com/2020/12/22/politics/henry-mcmaster-south-carolina-governor-tests-positive-covid/index.html",
+  "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/201222124820-gov-henry-mcmaster-file-super-tease.jpg",
+  "publishedAt": "2020-12-22T17:50:17Z",
+  "content": null
+  },
+  {
+  "source": {
+  "id": "cnn",
+  "name": "CNN"
+  },
+  "author": "Opinion by Andrea Hoffman",
+  "title": "The fear I've been living with all my life",
+  "description": "Andrea Hoffman, who was born with cystic fibrosis, writes that the news of Covid-19 vaccines provides some hope of a return to a more normal life throughout the country. Yet, millions, like her, will continue to live life with a Covid-19 mindset, paying atten…",
+  "url": "https://www.cnn.com/2020/12/18/opinions/cystic-fibrosis-fear-covid-19-normalize-public-health-practices-hoffman/index.html",
+  "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/201217153123-02-andrea-hoffman-super-tease.jpg",
+  "publishedAt": "2020-12-18T11:40:02Z",
+  "content": "Andrea Hoffman is a second-year student at Ohio Northern University, Ada, Ohio, double majoring in political science and public relations with minors in public policy, public health, pre-law and reli… [+5142 chars]"
+  },
+  {
+  "source": {
+  "id": "cnn",
+  "name": "CNN"
+  },
+  "author": null,
+  "title": "Watch the full CNN/Sesame Street town hall",
+  "description": "CNN partnered with Sesame Street for \"The ABC's of Covid-19: A CNN/Sesame Street Town Hall For Families,\" their fifth town hall to show families how to stay healthy during the holidays -- while still having fun -- during the Covid-19 pandemic.",
+  "url": "https://www.cnn.com/videos/health/2020/12/19/abcs-covid-19-sesame-street-entire-town-hall-december-19-2020-sot.cnn",
+  "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/201219082409-01-sesame-street-coronavirus-1219-super-tease.jpg",
+  "publishedAt": "2020-12-19T20:15:09Z",
+  "content": null
+  },
+  {
+  "source": {
+  "id": "cnn",
+  "name": "CNN"
+  },
+  "author": null,
+  "title": "How the vaccine gets from the lab to your arm",
+  "description": "This is the long road Covid-19 vaccines take to get to you. All the while, staying ultra cold.",
+  "url": "https://www.cnn.com/videos/business/2020/12/17/covid-vaccine-transportation-orig.cnn-business",
+  "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/201217180318-covid-vaccine-04-super-tease.jpg",
+  "publishedAt": "2020-12-17T23:44:20Z",
+  "content": null
+  },
+  {
+  "source": {
+  "id": "cnn",
+  "name": "CNN"
+  },
+  "author": null,
+  "title": "Here's what the stimulus package means for Americans",
+  "description": "CNN's Brian Todd reports on what the new $900 billion Covid-19 stimulus package means for many struggling Americans.",
+  "url": "https://www.cnn.com/videos/business/2020/12/28/stimulus-package-checks-americans-covid-19-todd-dnt-tsr-vpx.cnn",
+  "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/200503164542-stimulus-check-2020-super-tease.jpg",
+  "publishedAt": "2020-12-28T23:36:30Z",
+  "content": null
+  },
+  {
+  "source": {
+  "id": "cnn",
+  "name": "CNN"
+  },
+  "author": "Christina Maxouris, CNN",
+  "title": "More than 90,000 Americans could die of Covid-19 in next three weeks, CDC forecast shows",
+  "description": "More than 38,000 Americans have died of Covid-19 in the first two weeks of the new year.",
+  "url": "https://www.cnn.com/2021/01/14/health/us-coronavirus-thursday/index.html",
+  "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/210114001336-us-coronavirus-0101-super-tease.jpg",
+  "publishedAt": "2021-01-14T07:49:52Z",
+  "content": "(CNN)More than 38,000 Americans have died of Covid-19 in the first two weeks of the new year. \r\nAnother 92,000 are projected to die from the virus over roughly the next three weeks, according to an e… [+6027 chars]"
+  },
+  {
+  "source": {
+  "id": "cnn",
+  "name": "CNN"
+  },
+  "author": "Danielle Wiener-Bronner, CNN Business",
+  "title": "Tyson fires managers following allegations of Covid-19 betting pool",
+  "description": "Tyson has fired seven management employees at its biggest pork processing plant in Waterloo, Iowa as a result of an independent investigation into allegations that some bet on how many workers would get infected with Covid-19.",
+  "url": "https://www.cnn.com/2020/12/16/business/tyson-betting-managers-fired/index.html",
+  "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/201216153012-tyson-waterloo-ia-plant-super-tease.jpg",
+  "publishedAt": "2020-12-17T03:12:52Z",
+  "content": "New York (CNN Business)Tyson has fired seven management employees at its biggest pork processing plant in Waterloo, Iowa as a result of an independent investigation into allegations that some bet on … [+2870 chars]"
+  },
+  {
+  "source": {
+  "id": "cnn",
+  "name": "CNN"
+  },
+  "author": null,
+  "title": "Why some communities may have trouble receiving Covid-19 vaccines",
+  "description": "CNN's Omar Jimenez takes a closer look at \"pharmacy deserts\" and the impact they can have on communities trying to access the coronavirus vaccine.",
+  "url": "https://www.cnn.com/videos/politics/2020/12/24/pharmacy-deserts-coronavirus-vaccine-jimenez-es-pkg-vpx.cnn",
+  "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/201224064635-chicago-woman-coronavirus-vaccine-super-tease.jpg",
+  "publishedAt": "2020-12-24T13:17:33Z",
+  "content": null
+  },
+  {
+  "source": {
+  "id": "cnn",
+  "name": "CNN"
+  },
+  "author": null,
+  "title": "Late-night hosts react to Covid-19 vaccine distribution",
+  "description": "Late-night hosts Trevor Noah, Jimmy Fallon, Stephen Colbert, and James Corden poke fun at the first distribution of coronavirus vaccines in the US.",
+  "url": "https://www.cnn.com/videos/media/2020/12/15/covid-us-vaccine-fallon-colbert-noah-corden-late-night-orig.cnn",
+  "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/201215025418-trevor-noah-covid-vaccination-super-tease.jpg",
+  "publishedAt": "2020-12-15T08:19:33Z",
+  "content": ""
+  },
+  {
+  "source": {
+  "id": "cnn",
+  "name": "CNN"
+  },
+  "author": null,
+  "title": "New, more contagious variant of Covid-19 detected in Colorado",
+  "description": "CNN's Nick Watt reports that one confirmed case and one suspected case of a new, more contagious variant of Covid-19 has been detected in Colorado as hospitals in the US are already filling up with coronavirus patients.",
+  "url": "https://www.cnn.com/videos/health/2020/12/30/coronavirus-wrap-more-contagious-variant-detected-watt-dnt-nr-vpx.cnn",
+  "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/201228005052-us-coronavirus-1223-super-tease.jpg",
+  "publishedAt": "2020-12-30T20:47:14Z",
+  "content": null
+  },
+  {
+  "source": {
+  "id": "cnn",
+  "name": "CNN"
+  },
+  "author": null,
+  "title": "'I've seen 40 doctors': Covid-19 long hauler shares experience",
+  "description": "Abby Gresko Barclay speaks to CNN's Alisyn Camerota about her experience as a coronavirus long hauler and shares what it's like to experience coronavirus symptoms for 9-months, calling it a \"nightmare.\"",
+  "url": "https://www.cnn.com/videos/health/2020/12/15/coronavirus-long-hauler-barclay-intv-newday-camerota-vpx.cnn",
+  "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/201215093237-coronavirus-long-hauler-abby-super-tease.jpg",
+  "publishedAt": "2020-12-15T14:54:58Z",
+  "content": null
+  },
+  {
+  "source": {
+  "id": "cnn",
+  "name": "CNN"
+  },
+  "author": null,
+  "title": "Listen to Trump's sudden stipulation for Covid-19 stimulus bill",
+  "description": "President Trump issued a sudden pre-Christmas demand for changes to a desperately needed $900 billion pandemic relief bill that could potentially risk shattering the bipartisan compromise reached by Democrats and Republicans. CNN's Joe Johns reports.",
+  "url": "https://www.cnn.com/videos/politics/2020/12/23/trump-pardons-coronavirus-stimulus-johns-pkg-newday-vpx.cnn",
+  "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/201222230738-trump-media-final-days-super-tease.jpg",
+  "publishedAt": "2020-12-23T12:57:49Z",
+  "content": null
+  },
+  {
+  "source": {
+  "id": "cnn",
+  "name": "CNN"
+  },
+  "author": null,
+  "title": "See inside struggling California hospital as Covid-19 cases rise",
+  "description": "CNN's Lucy Kafanov goes inside a struggling California hospital as coronavirus cases continue to ravage the state.",
+  "url": "https://www.cnn.com/videos/health/2020/12/19/california-hospital-struggling-coronavirus-cases-rise-kafanov-pkg-vpx-ebof.cnn",
+  "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/201216234438-hospitales-california-conclu-super-tease.jpg",
+  "publishedAt": "2020-12-19T02:06:17Z",
+  "content": null
+  },
+  {
+  "source": {
+  "id": "cnn",
+  "name": "CNN"
+  },
+  "author": "Opinion by Megan Ranney",
+  "title": "The hypocrisies of officials who flout Covid precautions",
+  "description": "As a parent, I know that one of the first rules of parenting is to model the behavior I want to see. \"Do as I say, not as I do\" is rarely an effective strategy: My children notice even the slightest whiff of double standard between my words and my actions. Th…",
+  "url": "https://www.cnn.com/2020/12/29/opinions/covid-19-multiple-hypocrisies-ranney/index.html",
+  "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/201223114348-02-holiday-travel-1222-los-angeles-super-tease.jpg",
+  "publishedAt": "2020-12-29T16:26:41Z",
+  "content": "Megan Ranney, MD, MPH, is an associate professor of emergency medicine; co-founder of GetUsPPE; and a CNN medical analyst. The opinions expressed in this commentary are her own. View more opinion on … [+5236 chars]"
+  }
+  ]
+  }
