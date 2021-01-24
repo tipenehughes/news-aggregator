@@ -16,8 +16,8 @@ import wind from "../../../img/icons/wind.svg";
 import styles from "./WeatherApp.module.css";
 
 const WeatherApp = ({ theme }) => {
-    const APP_KEY = window.Configs.weatherApiKey;
-    const MAPS_APP_KEY = window.Configs.mapsApiKey;
+    const APP_KEY = process.env.REACT_APP_OPENWEATHER_KEY;
+    const MAPS_APP_KEY = process.env.REACT_APP_GOOGLEMAPS_KEY;
 
     const [units, setUnits] = useState("metric");
     const [unitSymbol, setUnitSymbol] = useState("c");

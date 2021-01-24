@@ -17,14 +17,15 @@
     cursor: pointer;
     width: 4rem;
     padding: 1px;
+    transition: 0.2s all ease;
 }
 
 .themeDark .buttonContainer {
     color: rgb(253, 251, 224);
     background: #002631;
     border: 1px solid rgba(77, 77, 77, 0.397);
-    box-shadow: 8px 8px 16px #00202a,
-    -8px -8px 16px #002c38;
+    box-shadow: 8px 8px 16px #00202a, -8px -8px 16px #002c38;
+    transition: 0.2s all ease;
 }
 
 @media only screen and (max-width: 480px) {
