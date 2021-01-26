@@ -25,9 +25,7 @@ const RedditApp = ({ theme }) => {
         setFilter(e.target.innerText.toLowerCase());
     };
 
-    return isLoading ? (
-        <Spinner />
-    ) : (
+    return (
         <div
             className={`${styles.redditApp} ${
                 theme === "dark" && styles.redditAppDark
@@ -93,16 +91,20 @@ const RedditApp = ({ theme }) => {
                     Top
                 </button>
             </div>
-            <div className={styles.results}>
-                {redditData.map((data, i) => (
-                    <RedditResults
-                        data={data}
-                        index={i}
-                        theme={theme}
-                        key={i}
-                    />
-                ))}
-            </div>
+            {isLoading ? (
+                <Spinner />
+            ) : (
+                <div className={styles.results}>
+                    {redditData.map((data, i) => (
+                        <RedditResults
+                            data={data}
+                            index={i}
+                            theme={theme}
+                            key={i}
+                        />
+                    ))}
+                </div>
+            )}
         </div>
     );
 };
