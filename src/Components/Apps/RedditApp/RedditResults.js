@@ -31,7 +31,7 @@ const RedditResults = ({ theme, data, index }) => {
                     <div className={styles.subreddit}>
                         <img src={require("../../../img/fmf.png")} alt="#" />
                         <a
-                            href={`${redditUrl}${data.data.subreddit_name_prefixed}`}
+                            href={`${redditUrl}/${data.data.subreddit_name_prefixed}`}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
